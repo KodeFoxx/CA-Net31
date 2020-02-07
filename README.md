@@ -1,8 +1,8 @@
 ![CI](https://github.com/KodeFoxx/Kf.CleanArchitectureTemplate.NetCore31/workflows/CI/badge.svg?branch=master)
 
-# Kf.CleanArchitectureTemplate.NetCore3_1
-Clean Architecture Template with .Net Core 3.1 with
-- IHost
+# KodeFoxx Clean Architecture Template for .Net Core 3.1.x
+- Hosting
+  - [ConsoleHostBuilder](https://github.com/KodeFoxx/Kf.CleanArchitectureTemplate.NetCore31/blob/master/Source/Presentation/Desktop/Kf.CANetCore31.Presentation.Desktop.Hosting.Extensions/ConsoleHostBuilder.cs#L19) with [example usage](https://github.com/KodeFoxx/Kf.CleanArchitectureTemplate.NetCore31/blob/master/Source/Presentation/Desktop/Kf.CANetCore31.Presentation.Desktop.ConsoleApp/Program.cs#L8).
 - Dependency Injection
 - MediatR
   - Commands and Queries
