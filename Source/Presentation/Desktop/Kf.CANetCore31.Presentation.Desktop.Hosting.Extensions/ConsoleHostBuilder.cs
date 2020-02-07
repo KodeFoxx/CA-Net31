@@ -16,7 +16,16 @@ namespace Kf.CANetCore31.Presentation.Desktop.Hosting.Extensions
         /// </summary>
         /// <typeparam name="TApplication">The type of the application. Make sure it has a public method Run with return type <see cref="Task"/>.</typeparam>
         /// <param name="arguments">The command line arguments.</param>
-        public static void CreateAndRunApplication<TApplication>(string[] arguments = null)
+        /// <param name="configureLoggingDelegate">Configures how the application will be logging.</param>
+        /// <param name="configureConfigurationDelegate">Configures the application's settings, the <see cref="IConfiguration"/>.</param>
+        /// <param name="configureServicesDelegate">Configures services to be injected into the application.</param>
+        /// /// <param name="configureServiceProviderOptionsDelegate">Configures the <see cref="IServiceProvider"/>.</param>
+        public static void CreateAndRunApplication<TApplication>(
+            string[] arguments = null,
+            Action<ILoggingBuilder> configureLoggingDelegate = null,
+            Action<HostBuilderContext, IConfigurationBuilder> configureConfigurationDelegate = null,
+            Action<HostBuilderContext, IServiceCollection> configureServicesDelegate = null,
+            Action<ServiceProviderOptions> configureServiceProviderOptionsDelegate = null)
             where TApplication : class
         {
             var errorMessage = $"Could not construct console host for application '{typeof(TApplication).Name}'";
@@ -29,7 +38,15 @@ namespace Kf.CANetCore31.Presentation.Desktop.Hosting.Extensions
                     throw new ConsoleHostBuilderException(
                         message: $"{errorMessage} because the 'Run' method's return type is not of type 'Task'.");
 
-                dynamic application = CreateHost<TApplication>(arguments).Services.GetService<TApplication>();
+                var host = CreateHost<TApplication>(
+                    arguments,
+                    configureLoggingDelegate,
+                    configureConfigurationDelegate,
+                    configureServicesDelegate,
+                    configureServiceProviderOptionsDelegate);
+
+                dynamic application = host.Services.GetService<TApplication>();
+
                 ((Task)application.Run()).Wait();
             }
             catch (Exception exception)

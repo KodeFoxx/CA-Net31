@@ -25,6 +25,13 @@
     <ProjectReference Include="..\..\..\Source\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
     <ProjectReference Include="..\..\..\Source\Core\Application\Kf.CANetCore31.Core.Application\Kf.CANetCore31.Core.Application.csproj" />
     <ProjectReference Include="..\..\..\Source\Core\Domain\Kf.CANetCore31.Core.Domain\Kf.CANetCore31.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Source\Presentation\Desktop\Kf.CANetCore31.Presentation.Desktop.Hosting.Extensions\Kf.CANetCore31.Presentation.Desktop.Hosting.Extensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

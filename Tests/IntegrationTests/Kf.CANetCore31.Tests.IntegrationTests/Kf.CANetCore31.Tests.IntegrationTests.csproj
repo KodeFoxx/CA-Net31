@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -25,6 +25,12 @@
     <ProjectReference Include="..\..\..\Source\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
     <ProjectReference Include="..\..\..\Source\Core\Application\Kf.CANetCore31.Core.Application\Kf.CANetCore31.Core.Application.csproj" />
     <ProjectReference Include="..\..\..\Source\Core\Domain\Kf.CANetCore31.Core.Domain\Kf.CANetCore31.Core.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
