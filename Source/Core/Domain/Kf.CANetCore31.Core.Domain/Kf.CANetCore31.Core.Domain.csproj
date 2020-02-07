@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\Kf.CleanArchitectureTemplate.NetCore31\Kf.CleanArchitectureTemplate.NetCore31.csproj" />
+    <ProjectReference Include="..\..\..\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
   </ItemGroup>
 
 </Project>

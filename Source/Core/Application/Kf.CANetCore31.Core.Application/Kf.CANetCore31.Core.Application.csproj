@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\Kf.CleanArchitectureTemplate.NetCore31\Kf.CleanArchitectureTemplate.NetCore31.csproj" />
-    <ProjectReference Include="..\..\Domain\Kf.CleanArchitectureTemplate.NetCore31.Core.Domain\Kf.CleanArchitectureTemplate.NetCore31.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
+    <ProjectReference Include="..\..\Domain\Kf.CANetCore31.Core.Domain\Kf.CANetCore31.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>
