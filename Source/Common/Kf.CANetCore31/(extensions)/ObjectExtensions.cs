@@ -1,4 +1,5 @@
-﻿using Kf.CANetCore31.Reflection;
+﻿using Kf.CANetCore31.Diagnostics;
+using Kf.CANetCore31.Reflection;
 using LanguageExt;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,22 @@ namespace Kf.CANetCore31
 {
     public static class ObjectExtensions
     {
+        /// <summary>
+        /// Creates a debug string.
+        /// </summary>
+        public static string CreateDebugString(
+            this object @this,
+            params (string Variable, Option<object> Value)[] variablesAndValues)
+            => DebugHelper.CreateDebugString(@this, variablesAndValues);
+
+        /// <summary>
+        /// Creates a debug string.
+        /// </summary>
+        public static string CreateDebugString<TObject>(
+            this TObject @this,
+            params Expression<Func<TObject, object>>[] propertySelectors)
+            => DebugHelper.CreateDebugString(@this, propertySelectors);
+
         /// <summary>
         /// Returns a <see cref="PropertyInfo"/> object by use of a lambda expression <paramref name="propertySelector"/>.
         /// </summary>
