@@ -1,0 +1,58 @@
+﻿using FluentAssertions;
+using System;
+using Xunit;
+
+namespace Kf.CANetCore31.Tests.UnitTests.Common._extensions_
+{
+    public sealed class ObjectExtensionsTests
+    {
+        [Fact]
+        public void GetPropertyNameAndValue_returns_the_name_and_value_of_the_property()
+        {
+            var stringObject = "stringObject";
+
+            var sut = stringObject.GetPropertyNameAndValue(p => p.Length)
+                .Some(v => v)
+                .None(Null.NullKeyValuePair);
+
+            sut.Should().NotBeNull();
+            sut.Key.Should().Be(nameof(stringObject.Length));
+            sut.Value.Should().Be(stringObject.Length.ToString());
+        }
+
+        [Fact]
+        public void GetPropertyNameAndValue_returns_NullKeyValuePair_when_not_found()
+        {
+            var stringObject = "stringObject";
+
+            var sut = stringObject.GetPropertyNameAndValue<string, object>(null)
+                .Some(v => v)
+                .None(Null.NullKeyValuePair);
+
+            sut.Should().NotBeNull();
+            sut.Should().Be(Null.NullKeyValuePair);
+        }
+
+        [Fact]
+        public void GetPropertyName_returns_the_name_of_the_property()
+        {
+            var stringObject = "stringObject";
+
+            var sut = stringObject.GetPropertyName(p => p.Length);
+
+            sut.IsNullOrWhiteSpace().Should().BeFalse();
+            sut.Should().Be(nameof(stringObject.Length));
+        }
+
+        [Fact]
+        public void GetPropertyName_returns_empty_string_when_not_found()
+        {
+            var stringObject = "stringObject";
+
+            var sut = stringObject.GetPropertyName<string, object>(null);
+
+            sut.IsNullOrWhiteSpace().Should().BeTrue();
+            sut.Should().Be(String.Empty);
+        }
+    }
+}

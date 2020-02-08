@@ -41,5 +41,18 @@ namespace Kf.CANetCore31.Reflection
             => @object.GetPropertyInfo(propertySelector)
                 .Some(p => KeyValuePair.Create(p.Name, p.GetValue(@object)?.ToString()))
                 .None(() => Null.NullKeyValuePair);
+
+        /// <summary>
+        /// Returns the <see cref="PropertyInfo"/> using a lambda selector.
+        /// </summary>
+        /// <typeparam name="TObject">The type of the object the property comes from.</typeparam>
+        /// <param name="object">The object the property is retrieved from.</param>
+        /// <param name="propertySelector">The lambda expression selecting the property.</param>
+        public static string GetPropertyName<TObject, TResult>(
+            TObject @object,
+            Expression<Func<TObject, TResult>> propertySelector)
+            => @object.GetPropertyInfo(propertySelector)
+                .Some(p => p.Name)
+                .None(String.Empty);
     }
 }
