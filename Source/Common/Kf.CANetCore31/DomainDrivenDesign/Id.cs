@@ -6,6 +6,10 @@ namespace Kf.CANetCore31.DomainDrivenDesign
     /// <summary>
     /// Represents an id.
     /// </summary>
+    /// <remarks>
+    /// Not convinced using a <see cref="ValueObject"/> for your id? Read this blog post https://buildplease.com/pages/vo-ids/.
+    /// If you are still not convinced, feel free removing it.
+    /// </remarks>
     [DebuggerDisplay("{DebuggerDisplayString,nq}")]
     public sealed class Id : ValueObject
     {
