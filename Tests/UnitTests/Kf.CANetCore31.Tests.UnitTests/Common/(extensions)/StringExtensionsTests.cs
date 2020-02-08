@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Kf.CANetCore31.Tests.UnitTests.Common._extensions_
+namespace Kf.CANetCore31.Tests.UnitTests.Common
 {
     public sealed class StringExtensionsTests
     {
