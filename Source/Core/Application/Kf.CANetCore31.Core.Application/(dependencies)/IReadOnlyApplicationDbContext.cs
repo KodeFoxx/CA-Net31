@@ -1,4 +1,4 @@
-﻿using Kf.CANetCore31.Core.Domain;
+﻿using Kf.CANetCore31.Core.Domain.People;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kf.CANetCore31.Core.Application
