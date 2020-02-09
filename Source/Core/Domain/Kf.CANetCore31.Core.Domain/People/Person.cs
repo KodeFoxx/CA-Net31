@@ -9,10 +9,10 @@ namespace Kf.CANetCore31.Core.Domain.People
         public static Person Empty
             => new Person();
 
-        public static Person Create(Id id)
+        public static Person Create(long id)
             => new Person(id);
 
-        private Person(Id id)
+        private Person(long id)
             : base(id)
         { }
         private Person()

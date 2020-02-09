@@ -10,7 +10,6 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.EntityTypeConfigurations.
         public void Configure(EntityTypeBuilder<Person> builder)
         {
             builder.ConfigureId();
-            builder.Ignore(e => e.Id);
             builder.Ignore(e => e.Number);
         }
     }

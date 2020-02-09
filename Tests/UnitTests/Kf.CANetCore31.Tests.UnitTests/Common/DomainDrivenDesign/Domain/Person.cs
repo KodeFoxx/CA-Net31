@@ -7,12 +7,12 @@ namespace Kf.CANetCore31.Tests.UnitTests.Common.DomainDrivenDesign.Domain
         public static Person Empty
             => new Person();
 
-        public static Person Create(Id id, Name name)
+        public static Person Create(long id, Name name)
             => new Person(id, name);
-        public static Person Create(Id id, string firstName, string lastName)
+        public static Person Create(long id, string firstName, string lastName)
             => new Person(id, Name.Create(firstName, lastName));
 
-        private Person(Id id, Name name)
+        private Person(long id, Name name)
             : base(id)
             => Name = name;
         private Person()
