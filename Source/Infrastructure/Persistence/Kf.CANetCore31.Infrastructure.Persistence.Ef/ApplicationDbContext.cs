@@ -15,12 +15,16 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
             DbContextOptions options)
             : base(options)
             => _logger = logger;
+        public ApplicationDbContext(
+            DbContextOptions options)
+            : base(options)
+        { }
 
         public DbSet<Person> People { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
             modelBuilder.ConfigureSeed();
             base.OnModelCreating(modelBuilder);
         }

@@ -28,6 +28,11 @@ namespace Kf.CANetCore31
             Func<bool, TResult> resultValueDelegate)
             => resultValueDelegate(@string.IsNullOrWhiteSpace());
 
+        public static string IfNullOrWhiteSpaceThen(
+            this string @string,
+            Func<bool, string> resultValueDelegate)
+            => resultValueDelegate(@string.IsNullOrWhiteSpace());
+
         public static TResult IfNullOrWhiteSpaceThen<TResult>(
             this string @string,
             TResult resultWhenNullOrWhiteSpaceValue,
@@ -35,5 +40,12 @@ namespace Kf.CANetCore31
             => @string.IfNullOrWhiteSpaceThen(result => result
                 ? resultWhenNullOrWhiteSpaceValue
                 : resultWhenNotNullOrWhiteSpaceValue);
+
+        public static string IfNullOrWhiteSpaceThen(
+            this string @string,
+            string resultWhenNullOrWhiteSpaceValue)
+            => @string.IfNullOrWhiteSpaceThen(result => result
+                ? resultWhenNullOrWhiteSpaceValue
+                : @string);
     }
 }

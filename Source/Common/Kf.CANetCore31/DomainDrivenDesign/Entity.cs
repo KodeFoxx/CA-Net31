@@ -26,10 +26,10 @@ namespace Kf.CANetCore31.DomainDrivenDesign
         public static bool operator !=(Entity a, Entity b)
             => !(a == b);
 
-        protected Entity(Id id)
+        protected Entity(long id)
             => Id = id;
 
-        public Id Id { get; }
+        public long Id { get; }
 
         public override bool Equals(object @object)
         {

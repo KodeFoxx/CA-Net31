@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Kf.CANetCore31.DomainDrivenDesign
@@ -11,6 +12,7 @@ namespace Kf.CANetCore31.DomainDrivenDesign
     /// If you are still not convinced, feel free removing it.
     /// </remarks>
     [DebuggerDisplay("{DebuggerDisplayString,nq}")]
+    [Obsolete]
     public sealed class Id : ValueObject
     {
         public static implicit operator Id(long value)

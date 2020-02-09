@@ -16,7 +16,7 @@ namespace Kf.CANetCore31.Core.Domain.People
             : base(id)
         { }
         private Person()
-            : this(Id.Empty)
+            : this(0)
         { }
 
         public Number Number

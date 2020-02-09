@@ -1,5 +1,5 @@
-﻿EfCommandInit.bat %2
+CALL EfCommandInit.bat %2
 
 dotnet ef migrations add %1 --startup-project %startup_project%
 
-EfCommandCleanup.bat
+CALL EfCommandCleanup.bat

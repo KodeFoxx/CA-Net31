@@ -16,7 +16,7 @@ namespace Kf.CANetCore31.Tests.UnitTests.Common.DomainDrivenDesign.Domain
             : base(id)
             => Name = name;
         private Person()
-            : this(Id.Empty, Name.Empty)
+            : this(0, Name.Empty)
         { }
 
         public Name Name { get; }
