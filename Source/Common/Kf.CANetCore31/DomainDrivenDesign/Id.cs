@@ -21,8 +21,9 @@ namespace Kf.CANetCore31.DomainDrivenDesign
             => new Id((long)value);
         public static implicit operator ulong(Id value)
             => (ulong)value.Value;
-        public static implicit operator int(Id value)
-            => (int)value.Value;
+        public static implicit operator Id(int value)
+            => new Id(value);
+
 
         public static Id Empty
             => new Id();

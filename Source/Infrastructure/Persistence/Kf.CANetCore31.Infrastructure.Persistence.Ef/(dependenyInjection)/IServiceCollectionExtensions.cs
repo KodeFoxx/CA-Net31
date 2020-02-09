@@ -7,7 +7,7 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
 {
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddAndConfigurePersistence(
+        public static IServiceCollection AddAndConfigureSqlServerPersistence(
             this IServiceCollection serviceCollection,
             IConfiguration configuration = default)
             => serviceCollection
