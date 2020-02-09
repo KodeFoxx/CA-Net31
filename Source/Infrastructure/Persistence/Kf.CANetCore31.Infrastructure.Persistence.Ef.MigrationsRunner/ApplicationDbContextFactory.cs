@@ -49,7 +49,7 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.MigrationsRunner
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseSqlServer(GetConnectionString())
                 .Options;
-            _logger.LogTrace("Completed building options object: {@options}.", options);
+            _logger.LogTrace("Completed building options object.");
 
             if (ContinueWithAction())
                 return new ApplicationDbContext(options);
