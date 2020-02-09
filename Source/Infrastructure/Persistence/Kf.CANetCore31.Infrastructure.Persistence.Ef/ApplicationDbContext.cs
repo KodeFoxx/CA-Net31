@@ -21,7 +21,7 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
-            ApplicationDbContextSeed.SeedAsync(modelBuilder).Wait();
+            modelBuilder.ConfigureSeed();
             base.OnModelCreating(modelBuilder);
         }
     }

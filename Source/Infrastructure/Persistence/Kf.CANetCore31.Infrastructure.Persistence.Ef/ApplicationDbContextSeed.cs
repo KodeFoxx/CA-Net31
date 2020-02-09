@@ -1,21 +1,33 @@
 ﻿using Kf.CANetCore31.Core.Domain.People;
+using Kf.CANetCore31.DomainDrivenDesign;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Collections.Generic;
 
 namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
 {
-    public sealed class ApplicationDbContextSeed
+    public static class ApplicationDbContextSeedConfiguration
     {
-        public static Task SeedAsync(ModelBuilder modelBuilder)
+        public static void ConfigureSeed(
+            this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Person>()
-                .HasData(new[]
-                {
-                    Person.Create(1),
-                    Person.Create(33311)
-                });
-
-            return Task.CompletedTask;
+            modelBuilder.DataFor(
+                Person.Create(1),
+                Person.Create(33311)
+            );
         }
+
+        private static DataBuilder<TEntity> DataFor<TEntity>(
+            this ModelBuilder modelBuilder,
+            params TEntity[] entities)
+            where TEntity : Entity
+            => modelBuilder.DataFor(entities);
+
+        private static DataBuilder<TEntity> DataFor<TEntity>(
+            this ModelBuilder modelBuilder,
+            IEnumerable<TEntity> entities)
+            where TEntity : Entity
+            => modelBuilder.Entity<TEntity>()
+                .HasData(entities.IfNullThenEmpty());
     }
 }

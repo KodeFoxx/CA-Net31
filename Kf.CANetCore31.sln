@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Infrastructure.Persistence.Ef", "Source\Infrastructure\Persistence\Kf.CANetCore31.Infrastructure.Persistence.Ef\Kf.CANetCore31.Infrastructure.Persistence.Ef.csproj", "{B30F2F86-08B4-4A76-BEA9-4603853CB1C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Infrastructure.Persistence.Ef.MigrationsRunner", "Source\Infrastructure\Persistence\Kf.CANetCore31.Infrastructure.Persistence.Ef.MigrationsRunner\Kf.CANetCore31.Infrastructure.Persistence.Ef.MigrationsRunner.csproj", "{5722EB63-93B4-40BF-9BE3-4A05966968F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{B30F2F86-08B4-4A76-BEA9-4603853CB1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B30F2F86-08B4-4A76-BEA9-4603853CB1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B30F2F86-08B4-4A76-BEA9-4603853CB1C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5722EB63-93B4-40BF-9BE3-4A05966968F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5722EB63-93B4-40BF-9BE3-4A05966968F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5722EB63-93B4-40BF-9BE3-4A05966968F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5722EB63-93B4-40BF-9BE3-4A05966968F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +130,7 @@ Global
 		{68D7B30C-0A43-4A00-9750-FD906D8DE497} = {08EA7666-B979-462C-809B-B0B8E009EB0E}
 		{B919327F-5C76-4FEB-8FE0-361DCB27D686} = {69183980-DCA3-4738-9048-9F4187C1C25D}
 		{B30F2F86-08B4-4A76-BEA9-4603853CB1C2} = {69183980-DCA3-4738-9048-9F4187C1C25D}
+		{5722EB63-93B4-40BF-9BE3-4A05966968F4} = {69183980-DCA3-4738-9048-9F4187C1C25D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79EE9B46-32EA-449B-9DEF-BF43158432A5}

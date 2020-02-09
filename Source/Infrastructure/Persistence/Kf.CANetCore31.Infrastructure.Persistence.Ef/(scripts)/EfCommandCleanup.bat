@@ -1,0 +1,3 @@
+﻿ECHO OFF
+SET %startup-project%=
+SET DOTNET_ENVIRONMENT=
