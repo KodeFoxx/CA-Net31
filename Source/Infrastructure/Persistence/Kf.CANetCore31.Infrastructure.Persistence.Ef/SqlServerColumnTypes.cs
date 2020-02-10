@@ -6,7 +6,7 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
     /// SQL Server Data Types
     /// If anything is missing, add from this list https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql-server-data-type-mappings
     /// </summary>
-    public static class SqlColumnTypes
+    public static class SqlServerColumnTypes
     {
         /// <summary>
         /// <see cref="Int16"/>.

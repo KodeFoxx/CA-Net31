@@ -17,10 +17,12 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.EntityTypeConfigurations.
                 {
                     name.Property(p => p.FirstName)
                         .HasColumnName("firstName")
-                        .HasMaxLength(150);
+                        .HasMaxLength(150)
+                        .HasColumnType(SqlServerColumnTypes.String_NVARCHAR);
                     name.Property(p => p.LastName)
                         .HasColumnName("lastName")
-                        .HasMaxLength(150);
+                        .HasMaxLength(150)
+                        .HasColumnType(SqlServerColumnTypes.String_NVARCHAR);
                 }
             );
 

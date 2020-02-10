@@ -22,7 +22,8 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnName("id")
+                        .HasColumnType("BIGINT")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.HasKey("Id");
@@ -36,17 +37,17 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
                         {
                             b1.Property<long>("PersonId")
                                 .ValueGeneratedOnAdd()
-                                .HasColumnType("bigint")
+                                .HasColumnType("BIGINT")
                                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                             b1.Property<string>("FirstName")
                                 .HasColumnName("firstName")
-                                .HasColumnType("nvarchar(150)")
+                                .HasColumnType("NVARCHAR")
                                 .HasMaxLength(150);
 
                             b1.Property<string>("LastName")
                                 .HasColumnName("lastName")
-                                .HasColumnType("nvarchar(150)")
+                                .HasColumnType("NVARCHAR")
                                 .HasMaxLength(150);
 
                             b1.HasKey("PersonId");
