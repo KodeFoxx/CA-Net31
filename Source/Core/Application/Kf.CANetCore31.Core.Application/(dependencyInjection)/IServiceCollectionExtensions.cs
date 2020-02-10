@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Kf.CANetCore31.Core.Application.Behaviors;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,7 @@ namespace Kf.CANetCore31.Core.Application
         private static IServiceCollection AddAndConfigureMediatR(
             this IServiceCollection serviceCollection)
             => serviceCollection
-                .AddMediatR(Assembly.GetExecutingAssembly());
+                .AddMediatR(Assembly.GetExecutingAssembly())
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(LogRequestProcessingTimeBehavior<,>));
     }
 }

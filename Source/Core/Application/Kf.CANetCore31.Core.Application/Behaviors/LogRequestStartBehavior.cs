@@ -15,8 +15,6 @@ namespace Kf.CANetCore31.Core.Application.Behaviors
         public Task Process(
             TRequest request,
             CancellationToken cancellationToken)
-            => LogBehaviorForRequest(
-                BehaviorNames.StartRequest,
-                typeof(TRequest).GetTypeName());
+            => LogBehaviorForRequest(BehaviorNames.StartRequest);
     }
 }

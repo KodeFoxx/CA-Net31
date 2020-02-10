@@ -16,8 +16,6 @@ namespace Kf.CANetCore31.Core.Application.Behaviors
             TRequest request,
             TResponse response,
             CancellationToken cancellationToken)
-            => LogBehaviorForRequest(
-                BehaviorNames.EndRequest,
-                typeof(TRequest).GetTypeName());
+            => LogBehaviorForRequest(BehaviorNames.EndRequest);
     }
 }
