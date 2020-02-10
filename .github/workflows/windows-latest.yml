@@ -8,6 +8,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Enable Long Path Support
+        run: reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1
       - name: Checkout
         uses: actions/checkout@v2.0.0
       - name: Install .Net Core 3.1 SDK
