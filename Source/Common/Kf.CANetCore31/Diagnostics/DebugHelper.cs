@@ -49,7 +49,7 @@ namespace Kf.CANetCore31.Diagnostics
         /// <summary>
         /// Holds the logic on how to format the name of a type in a human readible format.
         /// </summary>
-        private static string FormatTypeName(Type type)
+        public static string FormatTypeName(Type type)
         {
             if (!type.IsGenericType) return type.Name;
 
