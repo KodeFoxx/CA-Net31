@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace Kf.CANetCore31.Core.Domain.People
 {
     /// <summary>
-    /// Defines a number of a person in KdG.
+    /// Defines a number of a person.
     /// </summary>
     [DebuggerDisplay("{DebuggerDisplayString,nq}")]
     public sealed class Number : ValueObject

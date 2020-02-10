@@ -12,10 +12,6 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
         public static void ConfigureSeed(
             this ModelBuilder modelBuilder)
         {
-            modelBuilder.DataFor(
-                Person.Create(1),
-                Person.Create(33311)
-            );
         }
 
         private static DataBuilder<TEntity> DataFor<TEntity>(

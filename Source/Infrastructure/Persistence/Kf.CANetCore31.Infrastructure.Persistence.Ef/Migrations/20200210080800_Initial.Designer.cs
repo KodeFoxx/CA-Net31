@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200209201217_Initial")]
+    [Migration("20200210080800_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,15 +30,33 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("People");
+                });
 
-                    b.HasData(
-                        new
+            modelBuilder.Entity("Kf.CANetCore31.Core.Domain.People.Person", b =>
+                {
+                    b.OwnsOne("Kf.CANetCore31.Core.Domain.People.Name", "Name", b1 =>
                         {
-                            Id = 1L
-                        },
-                        new
-                        {
-                            Id = 33311L
+                            b1.Property<long>("PersonId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("bigint")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("FirstName")
+                                .HasColumnName("firstName")
+                                .HasColumnType("nvarchar(150)")
+                                .HasMaxLength(150);
+
+                            b1.Property<string>("LastName")
+                                .HasColumnName("lastName")
+                                .HasColumnType("nvarchar(150)")
+                                .HasMaxLength(150);
+
+                            b1.HasKey("PersonId");
+
+                            b1.ToTable("People");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PersonId");
                         });
                 });
 #pragma warning restore 612, 618

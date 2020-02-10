@@ -10,6 +10,20 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.EntityTypeConfigurations.
         public void Configure(EntityTypeBuilder<Person> builder)
         {
             builder.ConfigureId();
+
+            builder.OwnsOne(
+                e => e.Name,
+                name =>
+                {
+                    name.Property(p => p.FirstName)
+                        .HasColumnName("firstName")
+                        .HasMaxLength(150);
+                    name.Property(p => p.LastName)
+                        .HasColumnName("lastName")
+                        .HasMaxLength(150);
+                }
+            );
+
             builder.Ignore(e => e.Number);
         }
     }

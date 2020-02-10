@@ -11,22 +11,14 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    firstName = table.Column<string>(maxLength: 150, nullable: true),
+                    lastName = table.Column<string>(maxLength: 150, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_People", x => x.Id);
                 });
-
-            migrationBuilder.InsertData(
-                table: "People",
-                column: "Id",
-                value: 1L);
-
-            migrationBuilder.InsertData(
-                table: "People",
-                column: "Id",
-                value: 33311L);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
