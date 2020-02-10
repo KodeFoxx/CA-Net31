@@ -12,8 +12,8 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
                 {
                     id = table.Column<long>(type: "BIGINT", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    firstName = table.Column<string>(type: "NVARCHAR", maxLength: 150, nullable: true),
-                    lastName = table.Column<string>(type: "NVARCHAR", maxLength: 150, nullable: true)
+                    firstName = table.Column<string>(maxLength: 150, nullable: true),
+                    lastName = table.Column<string>(maxLength: 150, nullable: true)
                 },
                 constraints: table =>
                 {

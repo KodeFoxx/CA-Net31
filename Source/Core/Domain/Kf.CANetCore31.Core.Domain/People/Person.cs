@@ -12,14 +12,20 @@ namespace Kf.CANetCore31.Core.Domain.People
         public static Person Empty
             => new Person();
 
+        public static Person Create(Name name)
+            => new Person(name);
+
         public static Person Create(long id, Name name)
             => new Person(id, name);
 
         private Person(long id, Name name)
             : base(id)
             => Name = name;
+        private Person(Name name)
+            : this(0, name)
+        { }
         private Person()
-            : this(0, Name.Empty)
+            : this(Name.Empty)
         { }
 
         public Number Number

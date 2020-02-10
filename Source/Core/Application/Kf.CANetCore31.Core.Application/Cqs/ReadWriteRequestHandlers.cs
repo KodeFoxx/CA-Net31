@@ -24,4 +24,24 @@ namespace Kf.CANetCore31.Core.Application.Cqs
             TRequest request,
             CancellationToken cancellationToken);
     }
+
+    public abstract class ReadWriteRequestHandler<TRequest>
+        : IRequestHandler<TRequest>
+        where TRequest : IRequest
+    {
+        public ReadWriteRequestHandler(
+            IReadWriteApplicationDbContext db,
+            IMapper mapper)
+        {
+            _db = db;
+            _mapper = mapper;
+        }
+
+        protected readonly IReadWriteApplicationDbContext _db;
+        private readonly IMapper _mapper;
+
+        public abstract Task<Unit> Handle(
+            TRequest request,
+            CancellationToken cancellationToken);
+    }
 }

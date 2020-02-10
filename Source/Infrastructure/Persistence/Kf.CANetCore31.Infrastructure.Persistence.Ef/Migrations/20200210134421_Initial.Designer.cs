@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200210082735_Initial")]
+    [Migration("20200210134421_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,12 +46,12 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef.Migrations
 
                             b1.Property<string>("FirstName")
                                 .HasColumnName("firstName")
-                                .HasColumnType("NVARCHAR")
+                                .HasColumnType("nvarchar(150)")
                                 .HasMaxLength(150);
 
                             b1.Property<string>("LastName")
                                 .HasColumnName("lastName")
-                                .HasColumnType("NVARCHAR")
+                                .HasColumnType("nvarchar(150)")
                                 .HasMaxLength(150);
 
                             b1.HasKey("PersonId");

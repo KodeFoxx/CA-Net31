@@ -11,15 +11,15 @@ GO
 
 CREATE TABLE [People] (
     [id] BIGINT NOT NULL IDENTITY,
-    [firstName] NVARCHAR NULL,
-    [lastName] NVARCHAR NULL,
+    [firstName] nvarchar(150) NULL,
+    [lastName] nvarchar(150) NULL,
     CONSTRAINT [PK_People] PRIMARY KEY ([id])
 );
 
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20200210082735_Initial', N'3.1.1');
+VALUES (N'20200210134421_Initial', N'3.1.1');
 
 GO
 
