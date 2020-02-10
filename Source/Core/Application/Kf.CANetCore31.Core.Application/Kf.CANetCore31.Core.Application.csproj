@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <Folder Include="Cqs\Commands\" />
-    <Folder Include="Cqs\Queries\" />
   </ItemGroup>
 
 </Project>

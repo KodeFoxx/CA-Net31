@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Kf.CANetCore31.Presentation.Desktop.ConsoleApp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

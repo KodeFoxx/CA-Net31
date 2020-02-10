@@ -9,7 +9,7 @@ namespace Kf.CANetCore31.Infrastructure.Persistence.Ef
     {
         public static IServiceCollection AddAndConfigureSqlServerPersistence(
             this IServiceCollection serviceCollection,
-            IConfiguration configuration = default)
+            IConfiguration configuration)
             => serviceCollection
                 .AddAndConfigureSqlServerDbContext<ApplicationDbContext>(
                     connectionString: configuration.GetConnectionString(nameof(ApplicationDbContext))
