@@ -23,6 +23,7 @@ namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Domain
 
             solution.Should().NotBeNull();
             solution.FileInfo.Should().NotBeNull();
+            solution.Projects.Should().NotBeEmpty();
 
             var solutionFile = solution.SolutionFile;
             solutionFile.Should().NotBeNull();

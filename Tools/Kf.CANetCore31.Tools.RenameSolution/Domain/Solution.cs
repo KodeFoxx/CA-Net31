@@ -3,6 +3,7 @@ using Microsoft.Build.Construction;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Kf.CANetCore31.Tools.RenameSolution.Domain
 {
@@ -67,6 +68,8 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
 
         public FileInfo FileInfo { get; }
         public SolutionFile SolutionFile { get; }
+        public IEnumerable<ProjectInSolution> Projects
+            => SolutionFile?.ProjectsInOrder ?? Enumerable.Empty<ProjectInSolution>();
 
         protected override IEnumerable<object> EquatableValues
             => throw new System.NotImplementedException();
