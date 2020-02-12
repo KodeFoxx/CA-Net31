@@ -18,9 +18,15 @@ jobs:
         run: dir
       - name: down one directory
         run: cd..
+      - name: down one directory
+        run: cd..
+      - name: rename to s
+        run: Rename-Item -Path Clean-Architecture-Template-for-.Net-Core-3.1-with-EfCore-3.1 -NewName s
+      - name: up in solution directory s
+        run: cd s
       - name: rename to CA31
-        run: rename Clean-Architecture-Template-for-.Net-Core-3.1-with-EfCore-3.1 CA31
-      - name: up in solution directory
+        run: Rename-Item -Path Clean-Architecture-Template-for-.Net-Core-3.1-with-EfCore-3.1 -NewName CA31
+      - name: up in solution directory CA31
         run: cd CA31
       - name: Install .Net Core 3.1 SDK
         uses: actions/setup-dotnet@v1.4.0
