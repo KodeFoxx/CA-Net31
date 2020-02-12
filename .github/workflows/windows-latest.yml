@@ -14,14 +14,18 @@ jobs:
         run: git config --global core.longpaths true
       - name: Checkout
         uses: actions/checkout@v2.0.0      
+      - name: dir
+        run: dir
+      - name: down one directory
+        run: cd..
+      - name: rename to CA31
+        run: rename Clean-Architecture-Template-for-.Net-Core-3.1-with-EfCore-3.1 CA31
+      - name: up in solution directory
+        run: cd CA31
       - name: Install .Net Core 3.1 SDK
         uses: actions/setup-dotnet@v1.4.0
         with:
           dotnet-version: 3.1.101          
-      - name: Setup Nuget.exe
-        uses: warrenbuckley/Setup-Nuget@v1
-      - name: Nuget restore
-        run: nuget restore
       - name: Build project
         run: dotnet build --configuration Release
       - name: Run tests
