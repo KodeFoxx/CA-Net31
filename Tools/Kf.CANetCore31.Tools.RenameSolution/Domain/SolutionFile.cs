@@ -13,7 +13,21 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
         public static SolutionFile LoadFrom(FileInfo fileInfo)
             => new SolutionFile(fileInfo);
         public static SolutionFile LoadFrom(string solutionFilePath)
-            => new SolutionFile(solutionFilePath);
+        {
+            try
+            {
+                if (String.IsNullOrWhiteSpace(solutionFilePath))
+                    throw new ArgumentNullException(nameof(solutionFilePath));
+            }
+            catch (Exception exception)
+            {
+                throw new SolutionFileLoadException(
+                    $"Could not load solution due to an '{exception.GetType().GetTypeName()}', see innerException for more information.",
+                    exception);
+            }
+
+            return LoadFrom(new FileInfo(solutionFilePath));
+        }
 
         private SolutionFile(FileInfo solutionFile)
         {
@@ -32,7 +46,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
                         $"The file found at '{solutionFile.FullName}' does not have the correct extension, expected '.sln' but found '{solutionFile.Extension}'.",
                         solutionFile.FullName);
 
-                _solutionFile = solutionFile;
+                FileInfo = solutionFile;
             }
             catch (Exception exception)
             {
@@ -41,14 +55,12 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
                     exception);
             }
         }
-        private SolutionFile(string solutionFilePath)
-            : this(new FileInfo(solutionFilePath))
-        { }
         private SolutionFile()
-            => _solutionFile = null;
+            => FileInfo = null;
 
         private readonly string _solutionFileExtension = ".sln";
-        private readonly FileInfo _solutionFile;
+
+        public FileInfo FileInfo { get; }
 
         protected override IEnumerable<object> EquatableValues
             => throw new System.NotImplementedException();
