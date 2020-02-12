@@ -8,14 +8,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: git config --global core.longpaths true
+        run: git config --global core.longpaths true
       - name: Checkout
         uses: actions/checkout@v2.0.0
       - name: Install .Net Core 3.1 SDK
         uses: actions/setup-dotnet@v1.4.0
         with:
           dotnet-version: 3.1.101
-      - name: git config --global core.longpaths true
-        run: git config --global core.longpaths true
       - name: Build project
         run: dotnet build --configuration Release
       - name: Run tests
