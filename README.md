@@ -1,4 +1,5 @@
 ![CI](https://github.com/KodeFoxx/Kf.CleanArchitectureTemplate.NetCore31/workflows/CI/badge.svg?branch=master)
+**NOTE** build currently fails due to https://github.com/dotnet/runtime/issues/3832
 
 # KodeFoxx Clean Architecture Template for .Net Core 3.1.x
 - Hosting
