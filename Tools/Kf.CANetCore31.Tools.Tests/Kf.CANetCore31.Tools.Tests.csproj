@@ -2,14 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <LangVersion>8.0</LangVersion>
-    <Nullable>disable</Nullable>
+
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.2" />
-    <PackageReference Include="LanguageExt.Core" Version="3.3.51" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -23,9 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
-    <ProjectReference Include="..\..\..\Source\Core\Application\Kf.CANetCore31.Core.Application\Kf.CANetCore31.Core.Application.csproj" />
-    <ProjectReference Include="..\..\..\Source\Core\Domain\Kf.CANetCore31.Core.Domain\Kf.CANetCore31.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\Source\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
+    <ProjectReference Include="..\Kf.CANetCore31.Tools.RenameSolution\Kf.CANetCore31.Tools.RenameSolution.csproj" />
   </ItemGroup>
 
   <ItemGroup>
