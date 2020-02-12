@@ -61,9 +61,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kf.CANetCore31.Infrastructu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{D5132182-63F0-492F-9FD2-DA2158F5BE5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Tools.RenameSolution", "Tools\Kf.CANetCore31.Tools.RenameSolution\Kf.CANetCore31.Tools.RenameSolution.csproj", "{DF2DF521-37BF-49EF-A8B1-173D9BF3F705}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kf.CANetCore31.Tools.RenameSolution", "Tools\Kf.CANetCore31.Tools.RenameSolution\Kf.CANetCore31.Tools.RenameSolution.csproj", "{DF2DF521-37BF-49EF-A8B1-173D9BF3F705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Tools.Tests", "Tools\Kf.CANetCore31.Tools.Tests\Kf.CANetCore31.Tools.Tests.csproj", "{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kf.CANetCore31.Tools.Tests", "Tools\Kf.CANetCore31.Tools.Tests\Kf.CANetCore31.Tools.Tests.csproj", "{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient", "Tools\Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient\Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.csproj", "{10E16252-38AF-4726-97AD-0558ACAC54CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +121,10 @@ Global
 		{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10E16252-38AF-4726-97AD-0558ACAC54CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E16252-38AF-4726-97AD-0558ACAC54CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E16252-38AF-4726-97AD-0558ACAC54CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E16252-38AF-4726-97AD-0558ACAC54CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +153,7 @@ Global
 		{5722EB63-93B4-40BF-9BE3-4A05966968F4} = {69183980-DCA3-4738-9048-9F4187C1C25D}
 		{DF2DF521-37BF-49EF-A8B1-173D9BF3F705} = {D5132182-63F0-492F-9FD2-DA2158F5BE5D}
 		{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316} = {D5132182-63F0-492F-9FD2-DA2158F5BE5D}
+		{10E16252-38AF-4726-97AD-0558ACAC54CB} = {D5132182-63F0-492F-9FD2-DA2158F5BE5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79EE9B46-32EA-449B-9DEF-BF43158432A5}
