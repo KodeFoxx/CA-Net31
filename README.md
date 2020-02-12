@@ -1,5 +1,6 @@
 ![CI](https://github.com/KodeFoxx/Kf.CleanArchitectureTemplate.NetCore31/workflows/CI/badge.svg?branch=master)
-**NOTE** build currently fails due to https://github.com/dotnet/runtime/issues/3832
+
+**NOTE** build was currently failing due to https://github.com/dotnet/runtime/issues/3832, if you are having issues building on your own, then make sure to enable long path support and to place the solution under a folder like `c:\repos\CA-Net31\*.sln`.
 
 # KodeFoxx Clean Architecture Template for .Net Core 3.1.x
 - Hosting
