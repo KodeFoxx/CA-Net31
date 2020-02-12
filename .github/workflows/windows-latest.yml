@@ -8,6 +8,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: enable long path support
+        run: reg add HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1 /f
       - name: git config --global core.longpaths true
         run: git config --global core.longpaths true
       - name: Checkout
