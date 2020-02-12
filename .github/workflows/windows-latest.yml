@@ -14,6 +14,8 @@ jobs:
         uses: actions/setup-dotnet@v1.4.0
         with:
           dotnet-version: 3.1.101
+      - name: git config --global core.longpaths true
+        run: git config --global core.longpaths true
       - name: Build project
         run: dotnet build --configuration Release
       - name: Run tests
