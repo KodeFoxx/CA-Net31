@@ -8,26 +8,38 @@ using Xunit;
 
 namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Domain
 {
-    public sealed class SolutionFileTests
+    public sealed class SolutionTests
     {
-        private static SolutionFile GetCurrentSolutionFile()
+        private static Solution GetCurrentSolutionFile()
             => SolutionFileScanner.Scan(
                 path: Environment.CurrentDirectory,
                 searchRecursivelyInTopDirectories: true)
                 .First();
 
         [Fact]
-        public void Can_load_solution_file()
-            => GetCurrentSolutionFile()
-                .Should().NotBeNull();
+        public void Can_load_solution()
+        {
+            var solution = GetCurrentSolutionFile();
+
+            solution.Should().NotBeNull();
+            solution.FileInfo.Should().NotBeNull();
+
+            var solutionFile = solution.SolutionFile;
+            solutionFile.Should().NotBeNull();
+            solutionFile.ProjectsByGuid.Should().NotBeEmpty();
+            solutionFile.SolutionConfigurations
+                .Select(sc => sc.ConfigurationName.ToLowerInvariant())
+                .Should().Contain("release")
+                .And.Subject.Should().Contain("debug");
+        }
 
         [Theory, MemberData(nameof(Throws_SolutionFileLoadException_when_TestData))]
         public void Throws_SolutionFileLoadException_when(
             string reason,
-            Func<SolutionFile> loadingLogic,
+            Func<Solution> loadingLogic,
             Type innerExceptionType)
         {
-            var exception = Assert.Throws<SolutionFileLoadException>(testCode: () => loadingLogic());
+            var exception = Assert.Throws<SolutionLoadException>(testCode: () => loadingLogic());
 
             exception.InnerException.Should().NotBeNull(reason);
             exception.InnerException.GetType().Should().Be(innerExceptionType, reason);
@@ -39,51 +51,51 @@ namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Domain
                 new object[]
                 {
                     "Extension is not a '.sln'",
-                    new Func<SolutionFile>(() => {
+                    new Func<Solution>(() => {
                         var dllFile = Directory
                             .GetFiles(Environment.CurrentDirectory, "*.dll")
                             .First();
-                        return SolutionFile.LoadFrom(dllFile);
+                        return Solution.LoadFrom(dllFile);
                     }),
                     typeof(FileLoadException)
                 },
                 new object[]
                 {
                     "File doesn't exist",
-                    new Func<SolutionFile>(() => {
-                        return SolutionFile.LoadFrom("x:\\SolutionThatDoesntExist.sln");
+                    new Func<Solution>(() => {
+                        return Solution.LoadFrom("x:\\SolutionThatDoesntExist.sln");
                     }),
                     typeof(FileNotFoundException)
                 },
                 new object[]
                 {
                     "Null FileInfo is passed",
-                    new Func<SolutionFile>(() => {
-                        return SolutionFile.LoadFrom((FileInfo)null);
+                    new Func<Solution>(() => {
+                        return Solution.LoadFrom((FileInfo)null);
                     }),
                     typeof(ArgumentNullException)
                 },
                 new object[]
                 {
                     "Null string is passed",
-                    new Func<SolutionFile>(() => {
-                        return SolutionFile.LoadFrom((string)null);
+                    new Func<Solution>(() => {
+                        return Solution.LoadFrom((string)null);
                     }),
                     typeof(ArgumentNullException)
                 },
                 new object[]
                 {
                     "Empty string is passed",
-                    new Func<SolutionFile>(() => {
-                        return SolutionFile.LoadFrom("");
+                    new Func<Solution>(() => {
+                        return Solution.LoadFrom("");
                     }),
                     typeof(ArgumentNullException)
                 },
                 new object[]
                 {
                     "Whitespace string is passed",
-                    new Func<SolutionFile>(() => {
-                        return SolutionFile.LoadFrom(" ");
+                    new Func<Solution>(() => {
+                        return Solution.LoadFrom(" ");
                     }),
                     typeof(ArgumentNullException)
                 },

@@ -9,17 +9,17 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
     {
         private static readonly string _solutionFileExtension = ".sln";
 
-        public static IEnumerable<SolutionFile> Scan(
+        public static IEnumerable<Solution> Scan(
             DirectoryInfo directory,
             bool searchRecursivelyInTopDirectories = false,
-            List<SolutionFile> preExistingSolutionFiles = null)
+            List<Solution> preExistingSolutionFiles = null)
         {
             try
             {
                 if (!directory.Exists || !directory.Parent.Exists)
-                    return Enumerable.Empty<SolutionFile>();
+                    return Enumerable.Empty<Solution>();
 
-                var solutionFiles = preExistingSolutionFiles ?? new List<SolutionFile>();
+                var solutionFiles = preExistingSolutionFiles ?? new List<Solution>();
 
                 var potentialSolutionFiles = directory.GetFiles(
                     searchPattern: $"*{_solutionFileExtension}",
@@ -28,7 +28,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
                 var foundSolutionFiles = (
                         potentialSolutionFiles.Length > 0
                         ? LoadSolutionFiles(potentialSolutionFiles).Append(solutionFiles)
-                        : new List<SolutionFile>())
+                        : new List<Solution>())
                         .ToList();
 
                 if (!searchRecursivelyInTopDirectories || foundSolutionFiles.Length() > 0)
@@ -47,7 +47,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
             }
         }
 
-        public static IEnumerable<SolutionFile> Scan(
+        public static IEnumerable<Solution> Scan(
             string path,
             bool searchRecursivelyInTopDirectories = false)
         {
@@ -67,12 +67,12 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
             }
         }
 
-        private static List<SolutionFile> LoadSolutionFiles(IEnumerable<FileInfo> fileInfos)
+        private static List<Solution> LoadSolutionFiles(IEnumerable<FileInfo> fileInfos)
             => fileInfos
                 .Select(solutionFile =>
                 {
-                    try { return SolutionFile.LoadFrom(solutionFile); }
-                    catch (SolutionFileLoadException) { return null; }
+                    try { return Solution.LoadFrom(solutionFile); }
+                    catch (SolutionLoadException) { return null; }
                 })
                 .Where(solutionFile => solutionFile != null)
                 .ToList();

@@ -1,18 +1,19 @@
 ﻿using Kf.CANetCore31.DomainDrivenDesign;
+using Microsoft.Build.Construction;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace Kf.CANetCore31.Tools.RenameSolution.Domain
 {
-    public sealed class SolutionFile : ValueObject
+    public sealed class Solution : ValueObject
     {
-        public SolutionFile Empty
-            => new SolutionFile();
+        public Solution Empty
+            => new Solution();
 
-        public static SolutionFile LoadFrom(FileInfo fileInfo)
-            => new SolutionFile(fileInfo);
-        public static SolutionFile LoadFrom(string solutionFilePath)
+        public static Solution LoadFrom(FileInfo fileInfo)
+            => new Solution(fileInfo);
+        public static Solution LoadFrom(string solutionFilePath)
         {
             try
             {
@@ -21,7 +22,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
             }
             catch (Exception exception)
             {
-                throw new SolutionFileLoadException(
+                throw new SolutionLoadException(
                     $"Could not load solution due to an '{exception.GetType().GetTypeName()}', see innerException for more information.",
                     exception);
             }
@@ -29,7 +30,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
             return LoadFrom(new FileInfo(solutionFilePath));
         }
 
-        private SolutionFile(FileInfo solutionFile)
+        private Solution(FileInfo solutionFile)
         {
             try
             {
@@ -47,20 +48,25 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
                         solutionFile.FullName);
 
                 FileInfo = solutionFile;
+                SolutionFile = SolutionFile.Parse(FileInfo.FullName);
             }
             catch (Exception exception)
             {
-                throw new SolutionFileLoadException(
+                throw new SolutionLoadException(
                     $"Could not load solution due to an '{exception.GetType().GetTypeName()}', see innerException for more information.",
                     exception);
             }
         }
-        private SolutionFile()
-            => FileInfo = null;
+        private Solution()
+        {
+            FileInfo = null;
+            SolutionFile = null;
+        }
 
         private readonly string _solutionFileExtension = ".sln";
 
         public FileInfo FileInfo { get; }
+        public SolutionFile SolutionFile { get; }
 
         protected override IEnumerable<object> EquatableValues
             => throw new System.NotImplementedException();
