@@ -36,17 +36,22 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
             this.uxHeaderTitle = new System.Windows.Forms.Label();
             this.uxLogo = new System.Windows.Forms.PictureBox();
             this.uxBottom = new System.Windows.Forms.Panel();
-            this.uxClose = new System.Windows.Forms.Button();
-            this.uxBody = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.uxClose = new System.Windows.Forms.Button();
+            this.uxBody = new System.Windows.Forms.Panel();
+            this.uxWizardHost = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.uxNext = new System.Windows.Forms.Button();
+            this.uxPrevious = new System.Windows.Forms.Button();
+            this.uxStepCount = new System.Windows.Forms.Label();
+            this.uxStepInfo = new System.Windows.Forms.Label();
             this.uxHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxLogo)).BeginInit();
             this.uxBottom.SuspendLayout();
             this.uxBody.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.uxWizardHost.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxHeader
@@ -118,26 +123,6 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
             this.uxBottom.Size = new System.Drawing.Size(903, 50);
             this.uxBottom.TabIndex = 1;
             // 
-            // uxClose
-            // 
-            this.uxClose.Location = new System.Drawing.Point(816, 15);
-            this.uxClose.Name = "uxClose";
-            this.uxClose.Size = new System.Drawing.Size(75, 23);
-            this.uxClose.TabIndex = 0;
-            this.uxClose.Text = "&Close";
-            this.uxClose.UseVisualStyleBackColor = true;
-            this.uxClose.Click += new System.EventHandler(this.uxClose_Click);
-            // 
-            // uxBody
-            // 
-            this.uxBody.Controls.Add(this.tabControl1);
-            this.uxBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uxBody.Location = new System.Drawing.Point(0, 100);
-            this.uxBody.Name = "uxBody";
-            this.uxBody.Padding = new System.Windows.Forms.Padding(16);
-            this.uxBody.Size = new System.Drawing.Size(903, 509);
-            this.uxBody.TabIndex = 2;
-            // 
             // linkLabel1
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.OrangeRed;
@@ -162,25 +147,88 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
             this.label1.TabIndex = 1;
             this.label1.Text = "KodeFoxx";
             // 
-            // tabControl1
+            // uxClose
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(16, 16);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(871, 477);
-            this.tabControl1.TabIndex = 0;
+            this.uxClose.Location = new System.Drawing.Point(816, 15);
+            this.uxClose.Name = "uxClose";
+            this.uxClose.Size = new System.Drawing.Size(75, 23);
+            this.uxClose.TabIndex = 0;
+            this.uxClose.Text = "&Close";
+            this.uxClose.UseVisualStyleBackColor = true;
+            this.uxClose.Click += new System.EventHandler(this.uxClose_Click);
             // 
-            // tabPage1
+            // uxBody
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(863, 449);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Select Solution";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.uxBody.Controls.Add(this.uxWizardHost);
+            this.uxBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uxBody.Location = new System.Drawing.Point(0, 100);
+            this.uxBody.Name = "uxBody";
+            this.uxBody.Padding = new System.Windows.Forms.Padding(16);
+            this.uxBody.Size = new System.Drawing.Size(903, 509);
+            this.uxBody.TabIndex = 2;
+            // 
+            // uxWizardHost
+            // 
+            this.uxWizardHost.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.uxWizardHost.Controls.Add(this.panel1);
+            this.uxWizardHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uxWizardHost.Location = new System.Drawing.Point(16, 16);
+            this.uxWizardHost.Name = "uxWizardHost";
+            this.uxWizardHost.Size = new System.Drawing.Size(871, 477);
+            this.uxWizardHost.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.uxStepInfo);
+            this.panel1.Controls.Add(this.uxStepCount);
+            this.panel1.Controls.Add(this.uxPrevious);
+            this.panel1.Controls.Add(this.uxNext);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 427);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(871, 50);
+            this.panel1.TabIndex = 0;
+            // 
+            // uxNext
+            // 
+            this.uxNext.Location = new System.Drawing.Point(767, 14);
+            this.uxNext.Name = "uxNext";
+            this.uxNext.Size = new System.Drawing.Size(87, 23);
+            this.uxNext.TabIndex = 0;
+            this.uxNext.Text = "&Next >>";
+            this.uxNext.UseVisualStyleBackColor = true;
+            // 
+            // uxPrevious
+            // 
+            this.uxPrevious.Location = new System.Drawing.Point(674, 14);
+            this.uxPrevious.Name = "uxPrevious";
+            this.uxPrevious.Size = new System.Drawing.Size(87, 23);
+            this.uxPrevious.TabIndex = 0;
+            this.uxPrevious.Text = "<< &Previous";
+            this.uxPrevious.UseVisualStyleBackColor = true;
+            // 
+            // uxStepCount
+            // 
+            this.uxStepCount.AutoSize = true;
+            this.uxStepCount.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxStepCount.ForeColor = System.Drawing.Color.Black;
+            this.uxStepCount.Location = new System.Drawing.Point(13, 14);
+            this.uxStepCount.Name = "uxStepCount";
+            this.uxStepCount.Size = new System.Drawing.Size(42, 12);
+            this.uxStepCount.TabIndex = 1;
+            this.uxStepCount.Text = "Step 1/5";
+            // 
+            // uxStepInfo
+            // 
+            this.uxStepInfo.AutoSize = true;
+            this.uxStepInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxStepInfo.ForeColor = System.Drawing.Color.Black;
+            this.uxStepInfo.Location = new System.Drawing.Point(13, 24);
+            this.uxStepInfo.Name = "uxStepInfo";
+            this.uxStepInfo.Size = new System.Drawing.Size(161, 12);
+            this.uxStepInfo.TabIndex = 1;
+            this.uxStepInfo.Text = "Select a Visual Studio solution file";
             // 
             // Main
             // 
@@ -204,7 +252,9 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
             this.uxBottom.ResumeLayout(false);
             this.uxBottom.PerformLayout();
             this.uxBody.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.uxWizardHost.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -221,8 +271,12 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
         private System.Windows.Forms.Label uxProductBuildVersion;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel uxWizardHost;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button uxPrevious;
+        private System.Windows.Forms.Button uxNext;
+        private System.Windows.Forms.Label uxStepInfo;
+        private System.Windows.Forms.Label uxStepCount;
     }
 }
 

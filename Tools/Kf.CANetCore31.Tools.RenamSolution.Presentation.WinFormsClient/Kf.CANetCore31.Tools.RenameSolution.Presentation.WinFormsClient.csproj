@@ -10,6 +10,8 @@
 
   <PropertyGroup>
     <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
+    <AssemblyName>Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient</AssemblyName>
+    <RootNamespace>Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

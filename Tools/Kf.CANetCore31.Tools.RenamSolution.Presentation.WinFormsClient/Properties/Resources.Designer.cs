@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.Properties {
+namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient.Properties {
     using System;
     
     
@@ -39,8 +39,8 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.Propert
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.Properties.Resourc" +
-                            "es", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient.Properties.Resour" +
+                            "ces", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

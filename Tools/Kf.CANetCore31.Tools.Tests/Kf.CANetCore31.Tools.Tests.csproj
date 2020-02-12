@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Source\Common\Kf.CANetCore31\Kf.CANetCore31.csproj" />
     <ProjectReference Include="..\Kf.CANetCore31.Tools.RenameSolution\Kf.CANetCore31.Tools.RenameSolution.csproj" />
+    <ProjectReference Include="..\Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient\Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>

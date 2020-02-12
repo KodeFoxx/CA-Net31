@@ -65,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kf.CANetCore31.Tools.Rename
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kf.CANetCore31.Tools.Tests", "Tools\Kf.CANetCore31.Tools.Tests\Kf.CANetCore31.Tools.Tests.csproj", "{1EB2C7FF-2BDF-4081-9A01-D4E5C31AD316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient", "Tools\Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient\Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.csproj", "{10E16252-38AF-4726-97AD-0558ACAC54CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient", "Tools\Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient\Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient.csproj", "{10E16252-38AF-4726-97AD-0558ACAC54CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
