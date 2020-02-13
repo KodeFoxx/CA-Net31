@@ -7,8 +7,8 @@ namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Presentation.Wizard
 {
     public sealed class WizardControllerTests
     {
-        private static WizardController FiveStepWizardController
-            => new WizardController(new List<WizardStep>
+        private static WizardController<WizardStep> FiveStepWizardController
+            => new WizardController<WizardStep>(new List<WizardStep>
             {
                 WizardStep.Create("Step 1"),
                 WizardStep.Create("Step 2"),
@@ -20,12 +20,14 @@ namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Presentation.Wizard
         [Fact]
         public void When_no_steps_given_controller_builds()
         {
-            var sut = new WizardController(null);
+            var sut = new WizardController<WizardStep>(null);
             sut.Current.Should().Be(WizardStep.Empty);
             sut.AmountOfSteps.Should().Be(0);
             sut.CurrentStepNumber.Should().Be(0);
             sut.HasNextStep.Should().BeFalse();
             sut.Next().Should().Be(sut.Current);
+            sut.HasPreviousStep.Should().BeFalse();
+            sut.Previous().Should().Be(sut.Current);
         }
 
         [Fact]
@@ -54,6 +56,21 @@ namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Presentation.Wizard
             sut.Next().Should().Be(WizardStep.Create("Step 5"));
             sut.CurrentStepNumber.Should().Be(5);
             sut.HasNextStep.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Step_previous_navigation_cycles_and_returns_last_step_continuously()
+        {
+            var sut = FiveStepWizardController;
+            sut.HasNextStep.Should().BeTrue();
+            sut.CurrentStepNumber.Should().Be(1);
+            sut.Next().Should().Be(WizardStep.Create("Step 2"));
+            sut.CurrentStepNumber.Should().Be(2);
+            sut.Previous().Should().Be(WizardStep.Create("Step 1"));
+            sut.CurrentStepNumber.Should().Be(1);
+            sut.Previous().Should().Be(WizardStep.Create("Step 1"));
+            sut.CurrentStepNumber.Should().Be(1);
+            sut.HasPreviousStep.Should().BeFalse();
         }
     }
 }
