@@ -98,7 +98,7 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
                     var panelTitle = ((IEnumerable)panel.Controls).Cast<Control>().ToList()
                         .Where(c => c.GetType() == typeof(Label))
                         .Cast<Label>()
-                        .FirstOrDefault(l => l.Text.Equals("{description}"));
+                        .FirstOrDefault(l => l.Text.StartsWith("{description}"));
 
                     if (panelTitle != null)
                         panelTitle.Text = _wizard.GetStepAt(counter).Description;
@@ -141,6 +141,6 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
             openBrowserProcess.StartInfo.UseShellExecute = true;
             openBrowserProcess.Start();
         }
-        #endregion        
+        #endregion
     }
 }
