@@ -82,7 +82,10 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
                 .Cast<Panel>()
                 .FirstOrDefault(p => p.Tag.Equals(stepTag));
 
-            return panel ?? new Panel();
+            panel = panel ?? new Panel();
+            panel.Location = new Point(0, 0);
+
+            return panel;
         }
         private static void SetWizardPanelDescriptions(
             WizardController<WizardStep<Panel>> wizardController)
