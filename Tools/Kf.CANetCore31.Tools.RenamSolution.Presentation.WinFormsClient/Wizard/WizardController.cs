@@ -28,7 +28,8 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.Wizard
         public TWizardStep Current
             => _wizardSteps.Keys.Count > 0
                 ? _wizardSteps[_currentStepNumber]
-                : (TWizardStep)typeof(TWizardStep).GetProperty("Empty", BindingFlags.Static | BindingFlags.Public).GetValue(null);
+                : GetEmptyWizardStep();
+
         public bool HasNextStep => (AmountOfSteps - CurrentStepNumber) > 0;
         public bool HasPreviousStep => _currentStepNumber > 1;
 
@@ -47,5 +48,19 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient.Wizard
 
             return Current;
         }
+
+        public TWizardStep GetStepAt(int stepNumber)
+        {
+            if (stepNumber < 1 || stepNumber > AmountOfSteps)
+                return GetEmptyWizardStep();
+
+            return _wizardSteps[stepNumber];
+        }
+
+        public IReadOnlyCollection<TWizardStep> Steps
+            => new List<TWizardStep>(_wizardSteps.Values).AsReadOnly();
+
+        private static TWizardStep GetEmptyWizardStep()
+            => (TWizardStep)typeof(TWizardStep).GetProperty("Empty", BindingFlags.Static | BindingFlags.Public).GetValue(null);
     }
 }

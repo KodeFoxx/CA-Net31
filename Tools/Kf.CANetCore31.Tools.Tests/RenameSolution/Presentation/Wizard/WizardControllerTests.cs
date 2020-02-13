@@ -18,6 +18,13 @@ namespace Kf.CANetCore31.Tools.Tests.RenameSolution.Presentation.Wizard
             });
 
         [Fact]
+        public void Can_get_a_specific_step()
+        {
+            var sut = FiveStepWizardController;
+            sut.GetStepAt(3).Should().Be(WizardStep.Create("Step 3"));
+        }
+
+        [Fact]
         public void When_no_steps_given_controller_builds()
         {
             var sut = new WizardController<WizardStep>(null);
