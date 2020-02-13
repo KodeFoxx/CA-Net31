@@ -42,11 +42,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.uxPanel04 = new System.Windows.Forms.Panel();
+            this.uxStep04IntroText = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.uxPanel05 = new System.Windows.Forms.Panel();
             this.uxStep05Title = new System.Windows.Forms.Label();
             this.uxStep05IntroText = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.uxStep04IntroText = new System.Windows.Forms.Label();
             this.uxPanel03.SuspendLayout();
             this.uxPanel01.SuspendLayout();
             this.uxPanel02.SuspendLayout();
@@ -59,10 +59,11 @@
             this.uxPanel03.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxPanel03.Controls.Add(this.uxStep03Title);
             this.uxPanel03.Controls.Add(this.uxStep03IntroText);
-            this.uxPanel03.Location = new System.Drawing.Point(8, 568);
+            this.uxPanel03.Location = new System.Drawing.Point(7, 426);
+            this.uxPanel03.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPanel03.Name = "uxPanel03";
-            this.uxPanel03.Padding = new System.Windows.Forms.Padding(8);
-            this.uxPanel03.Size = new System.Drawing.Size(980, 554);
+            this.uxPanel03.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.uxPanel03.Size = new System.Drawing.Size(858, 416);
             this.uxPanel03.TabIndex = 1;
             this.uxPanel03.Tag = "WizardStep_3";
             // 
@@ -71,27 +72,27 @@
             this.uxStep03Title.AutoSize = true;
             this.uxStep03Title.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep03Title.ForeColor = System.Drawing.Color.Black;
-            this.uxStep03Title.Location = new System.Drawing.Point(11, 8);
+            this.uxStep03Title.Location = new System.Drawing.Point(10, 6);
             this.uxStep03Title.Name = "uxStep03Title";
-            this.uxStep03Title.Size = new System.Drawing.Size(274, 41);
+            this.uxStep03Title.Size = new System.Drawing.Size(216, 32);
             this.uxStep03Title.TabIndex = 1;
             this.uxStep03Title.Text = "{description} step3";
             // 
             // uxStep03IntroText
             // 
             this.uxStep03IntroText.AutoSize = true;
-            this.uxStep03IntroText.Location = new System.Drawing.Point(20, 60);
+            this.uxStep03IntroText.Location = new System.Drawing.Point(18, 45);
             this.uxStep03IntroText.Name = "uxStep03IntroText";
-            this.uxStep03IntroText.Size = new System.Drawing.Size(75, 20);
+            this.uxStep03IntroText.Size = new System.Drawing.Size(60, 15);
             this.uxStep03IntroText.TabIndex = 0;
             this.uxStep03IntroText.Text = "{introtext}";
             // 
             // uxSolutionOldName
             // 
             this.uxSolutionOldName.AutoSize = true;
-            this.uxSolutionOldName.Location = new System.Drawing.Point(20, 60);
+            this.uxSolutionOldName.Location = new System.Drawing.Point(18, 45);
             this.uxSolutionOldName.Name = "uxSolutionOldName";
-            this.uxSolutionOldName.Size = new System.Drawing.Size(177, 20);
+            this.uxSolutionOldName.Size = new System.Drawing.Size(142, 15);
             this.uxSolutionOldName.TabIndex = 0;
             this.uxSolutionOldName.Text = "Old name of the solution:";
             // 
@@ -100,17 +101,18 @@
             this.uxStep02Title.AutoSize = true;
             this.uxStep02Title.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep02Title.ForeColor = System.Drawing.Color.Black;
-            this.uxStep02Title.Location = new System.Drawing.Point(11, 8);
+            this.uxStep02Title.Location = new System.Drawing.Point(10, 6);
             this.uxStep02Title.Name = "uxStep02Title";
-            this.uxStep02Title.Size = new System.Drawing.Size(274, 41);
+            this.uxStep02Title.Size = new System.Drawing.Size(216, 32);
             this.uxStep02Title.TabIndex = 1;
             this.uxStep02Title.Text = "{description} step2";
             // 
             // uxBrowseSolutionPath
             // 
-            this.uxBrowseSolutionPath.Location = new System.Drawing.Point(875, 83);
+            this.uxBrowseSolutionPath.Location = new System.Drawing.Point(766, 62);
+            this.uxBrowseSolutionPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxBrowseSolutionPath.Name = "uxBrowseSolutionPath";
-            this.uxBrowseSolutionPath.Size = new System.Drawing.Size(94, 27);
+            this.uxBrowseSolutionPath.Size = new System.Drawing.Size(82, 23);
             this.uxBrowseSolutionPath.TabIndex = 1;
             this.uxBrowseSolutionPath.Text = "Browse...";
             this.uxBrowseSolutionPath.UseVisualStyleBackColor = true;
@@ -118,18 +120,19 @@
             // 
             // uxSolutionPath
             // 
-            this.uxSolutionPath.Location = new System.Drawing.Point(20, 83);
+            this.uxSolutionPath.Location = new System.Drawing.Point(18, 62);
+            this.uxSolutionPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxSolutionPath.Name = "uxSolutionPath";
             this.uxSolutionPath.ReadOnly = true;
-            this.uxSolutionPath.Size = new System.Drawing.Size(849, 27);
+            this.uxSolutionPath.Size = new System.Drawing.Size(743, 23);
             this.uxSolutionPath.TabIndex = 2;
             // 
             // uxBrowseSolutionPathLabel
             // 
             this.uxBrowseSolutionPathLabel.AutoSize = true;
-            this.uxBrowseSolutionPathLabel.Location = new System.Drawing.Point(20, 60);
+            this.uxBrowseSolutionPathLabel.Location = new System.Drawing.Point(18, 45);
             this.uxBrowseSolutionPathLabel.Name = "uxBrowseSolutionPathLabel";
-            this.uxBrowseSolutionPathLabel.Size = new System.Drawing.Size(216, 20);
+            this.uxBrowseSolutionPathLabel.Size = new System.Drawing.Size(171, 15);
             this.uxBrowseSolutionPathLabel.TabIndex = 0;
             this.uxBrowseSolutionPathLabel.Text = "Visual Studio Solution file path:";
             // 
@@ -138,9 +141,9 @@
             this.uxStep01Title.AutoSize = true;
             this.uxStep01Title.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep01Title.ForeColor = System.Drawing.Color.Black;
-            this.uxStep01Title.Location = new System.Drawing.Point(11, 8);
+            this.uxStep01Title.Location = new System.Drawing.Point(10, 6);
             this.uxStep01Title.Name = "uxStep01Title";
-            this.uxStep01Title.Size = new System.Drawing.Size(269, 41);
+            this.uxStep01Title.Size = new System.Drawing.Size(213, 32);
             this.uxStep01Title.TabIndex = 1;
             this.uxStep01Title.Text = "{description} step1";
             // 
@@ -151,10 +154,11 @@
             this.uxPanel01.Controls.Add(this.uxSolutionPath);
             this.uxPanel01.Controls.Add(this.uxBrowseSolutionPathLabel);
             this.uxPanel01.Controls.Add(this.uxStep01Title);
-            this.uxPanel01.Location = new System.Drawing.Point(8, 8);
+            this.uxPanel01.Location = new System.Drawing.Point(7, 6);
+            this.uxPanel01.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPanel01.Name = "uxPanel01";
-            this.uxPanel01.Padding = new System.Windows.Forms.Padding(8);
-            this.uxPanel01.Size = new System.Drawing.Size(980, 554);
+            this.uxPanel01.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.uxPanel01.Size = new System.Drawing.Size(858, 416);
             this.uxPanel01.TabIndex = 1;
             this.uxPanel01.Tag = "WizardStep_1";
             // 
@@ -163,25 +167,26 @@
             this.uxPanel02.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxPanel02.Controls.Add(this.uxSolutionOldName);
             this.uxPanel02.Controls.Add(this.uxStep02Title);
-            this.uxPanel02.Location = new System.Drawing.Point(1000, 8);
+            this.uxPanel02.Location = new System.Drawing.Point(875, 6);
+            this.uxPanel02.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPanel02.Name = "uxPanel02";
-            this.uxPanel02.Padding = new System.Windows.Forms.Padding(8);
-            this.uxPanel02.Size = new System.Drawing.Size(980, 554);
+            this.uxPanel02.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.uxPanel02.Size = new System.Drawing.Size(858, 416);
             this.uxPanel02.TabIndex = 1;
             this.uxPanel02.Tag = "WizardStep_2";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(1908, -115);
+            this.label1.Location = new System.Drawing.Point(1670, -86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 2;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(1908, -115);
+            this.label2.Location = new System.Drawing.Point(1670, -86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 3;
             // 
             // uxPanel04
@@ -189,22 +194,44 @@
             this.uxPanel04.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxPanel04.Controls.Add(this.uxStep04IntroText);
             this.uxPanel04.Controls.Add(this.label3);
-            this.uxPanel04.Location = new System.Drawing.Point(1000, 568);
+            this.uxPanel04.Location = new System.Drawing.Point(875, 426);
+            this.uxPanel04.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPanel04.Name = "uxPanel04";
-            this.uxPanel04.Padding = new System.Windows.Forms.Padding(8);
-            this.uxPanel04.Size = new System.Drawing.Size(980, 554);
+            this.uxPanel04.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.uxPanel04.Size = new System.Drawing.Size(858, 416);
             this.uxPanel04.TabIndex = 1;
             this.uxPanel04.Tag = "WizardStep_4";
+            // 
+            // uxStep04IntroText
+            // 
+            this.uxStep04IntroText.AutoSize = true;
+            this.uxStep04IntroText.Location = new System.Drawing.Point(18, 45);
+            this.uxStep04IntroText.Name = "uxStep04IntroText";
+            this.uxStep04IntroText.Size = new System.Drawing.Size(60, 15);
+            this.uxStep04IntroText.TabIndex = 0;
+            this.uxStep04IntroText.Text = "{introtext}";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(10, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 32);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "{description} step4";
             // 
             // uxPanel05
             // 
             this.uxPanel05.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxPanel05.Controls.Add(this.uxStep05Title);
             this.uxPanel05.Controls.Add(this.uxStep05IntroText);
-            this.uxPanel05.Location = new System.Drawing.Point(2000, 8);
+            this.uxPanel05.Location = new System.Drawing.Point(1750, 6);
+            this.uxPanel05.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPanel05.Name = "uxPanel05";
-            this.uxPanel05.Padding = new System.Windows.Forms.Padding(8);
-            this.uxPanel05.Size = new System.Drawing.Size(980, 554);
+            this.uxPanel05.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.uxPanel05.Size = new System.Drawing.Size(858, 416);
             this.uxPanel05.TabIndex = 1;
             this.uxPanel05.Tag = "WizardStep_5";
             // 
@@ -213,46 +240,26 @@
             this.uxStep05Title.AutoSize = true;
             this.uxStep05Title.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep05Title.ForeColor = System.Drawing.Color.Black;
-            this.uxStep05Title.Location = new System.Drawing.Point(11, 8);
+            this.uxStep05Title.Location = new System.Drawing.Point(10, 6);
             this.uxStep05Title.Name = "uxStep05Title";
-            this.uxStep05Title.Size = new System.Drawing.Size(274, 41);
+            this.uxStep05Title.Size = new System.Drawing.Size(216, 32);
             this.uxStep05Title.TabIndex = 1;
             this.uxStep05Title.Text = "{description} step5";
             // 
             // uxStep05IntroText
             // 
             this.uxStep05IntroText.AutoSize = true;
-            this.uxStep05IntroText.Location = new System.Drawing.Point(20, 60);
+            this.uxStep05IntroText.Location = new System.Drawing.Point(18, 45);
             this.uxStep05IntroText.Name = "uxStep05IntroText";
-            this.uxStep05IntroText.Size = new System.Drawing.Size(75, 20);
+            this.uxStep05IntroText.Size = new System.Drawing.Size(60, 15);
             this.uxStep05IntroText.TabIndex = 0;
             this.uxStep05IntroText.Text = "{introtext}";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(11, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(274, 41);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "{description} step4";
-            // 
-            // uxStep04IntroText
-            // 
-            this.uxStep04IntroText.AutoSize = true;
-            this.uxStep04IntroText.Location = new System.Drawing.Point(20, 60);
-            this.uxStep04IntroText.Name = "uxStep04IntroText";
-            this.uxStep04IntroText.Size = new System.Drawing.Size(75, 20);
-            this.uxStep04IntroText.TabIndex = 0;
-            this.uxStep04IntroText.Text = "{introtext}";
-            // 
             // PanelHolder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(4804, 1325);
+            this.ClientSize = new System.Drawing.Size(3364, 796);
             this.Controls.Add(this.uxPanel05);
             this.Controls.Add(this.uxPanel04);
             this.Controls.Add(this.label2);
@@ -260,6 +267,7 @@
             this.Controls.Add(this.uxPanel02);
             this.Controls.Add(this.uxPanel03);
             this.Controls.Add(this.uxPanel01);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PanelHolder";
             this.Text = "PanelHolder";
             this.uxPanel03.ResumeLayout(false);

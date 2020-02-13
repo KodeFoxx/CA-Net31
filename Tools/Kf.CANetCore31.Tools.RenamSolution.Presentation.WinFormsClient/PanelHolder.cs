@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using Kf.CANetCore31.Tools.RenameSolution.Domain;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -48,11 +49,24 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
         private void UpdateSolutionPath()
         {
             uxSolutionPath.Text = AppState.SolutionPath;
-            if (File.Exists(AppState.SolutionPath))
+            if (File.Exists(AppState.SolutionPath) && AppState.Solution.Key != Solution.Empty)
                 ColorControlOk(uxSolutionPath);
             else
+            {
                 ColorControlError(uxSolutionPath);
+
+                MessageBox.Show(
+                    AppState.Solution.Value.InnerException.Message,
+                    AppState.Solution.Value.GetType().GetTypeName(),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
+        private void uxBrowseSolutionPath_Click(object sender, System.EventArgs e)
+            => BrowseSolutionPath();
+        #endregion
+
+        #region Color Handling
         private void ColorControlError(Control control)
         {
             control.BackColor = _errorColor;
@@ -63,11 +77,6 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
             control.BackColor = _okColor;
             control.ForeColor = _okColorText;
         }
-        #endregion
-
-        #region Click Handlers
-        private void uxBrowseSolutionPath_Click(object sender, System.EventArgs e)
-            => BrowseSolutionPath();
         #endregion
     }
 }

@@ -9,7 +9,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
 {
     public sealed class Solution : ValueObject
     {
-        public Solution Empty
+        public static Solution Empty
             => new Solution();
 
         public static Solution LoadFrom(FileInfo fileInfo)
@@ -72,6 +72,6 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
             => SolutionFile?.ProjectsInOrder ?? Enumerable.Empty<ProjectInSolution>();
 
         protected override IEnumerable<object> EquatableValues
-            => throw new System.NotImplementedException();
+            => new object[] { FileInfo, SolutionFile };
     }
 }
