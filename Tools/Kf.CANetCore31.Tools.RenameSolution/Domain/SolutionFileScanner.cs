@@ -53,11 +53,13 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Domain
         {
             try
             {
-                if (!Directory.Exists(path))
-                    throw new DirectoryNotFoundException(
-                        $"Given path '{path}' is malformed, doesn't exist, or is inaccesible");
+                var pathWithFileNameStripped = new FileInfo(path).Directory.FullName;
 
-                return Scan(new DirectoryInfo(path), searchRecursivelyInTopDirectories);
+                if (!Directory.Exists(pathWithFileNameStripped))
+                    throw new DirectoryNotFoundException(
+                        $"Given path '{pathWithFileNameStripped}' is malformed, doesn't exist, or is inaccesible");
+
+                return Scan(new DirectoryInfo(pathWithFileNameStripped), searchRecursivelyInTopDirectories);
             }
             catch (Exception exception)
             {

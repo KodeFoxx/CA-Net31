@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
@@ -28,8 +29,14 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
         private void BrowseSolutionPath()
         {
             var oldSolutionPath = uxSolutionPath.Text;
+
             using (var openFileDialog = new OpenFileDialog())
             {
+                if (oldSolutionPath.IsNullOrWhiteSpace())
+                    openFileDialog.InitialDirectory = SolutionFileScanner.Scan(Assembly.GetExecutingAssembly().Location, true).FirstOrDefault()?.FileInfo?.DirectoryName;
+                else
+                    openFileDialog.InitialDirectory = oldSolutionPath;
+
                 openFileDialog.Filter = "Visual Studio Solution (*.sln)|*.sln";
                 openFileDialog.Title = "Select a Visual Studio Solution file...";
                 openFileDialog.CheckPathExists = true;
