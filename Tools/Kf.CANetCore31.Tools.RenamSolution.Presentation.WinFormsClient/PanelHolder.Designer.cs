@@ -47,6 +47,8 @@
             this.uxPanel05 = new System.Windows.Forms.Panel();
             this.uxStep05Title = new System.Windows.Forms.Label();
             this.uxStep05IntroText = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uxClearSolutionPath = new System.Windows.Forms.Button();
             this.uxPanel03.SuspendLayout();
             this.uxPanel01.SuspendLayout();
             this.uxPanel02.SuspendLayout();
@@ -109,7 +111,7 @@
             // 
             // uxBrowseSolutionPath
             // 
-            this.uxBrowseSolutionPath.Location = new System.Drawing.Point(766, 62);
+            this.uxBrowseSolutionPath.Location = new System.Drawing.Point(684, 62);
             this.uxBrowseSolutionPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxBrowseSolutionPath.Name = "uxBrowseSolutionPath";
             this.uxBrowseSolutionPath.Size = new System.Drawing.Size(82, 23);
@@ -124,7 +126,7 @@
             this.uxSolutionPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxSolutionPath.Name = "uxSolutionPath";
             this.uxSolutionPath.ReadOnly = true;
-            this.uxSolutionPath.Size = new System.Drawing.Size(743, 23);
+            this.uxSolutionPath.Size = new System.Drawing.Size(660, 23);
             this.uxSolutionPath.TabIndex = 2;
             // 
             // uxBrowseSolutionPathLabel
@@ -151,6 +153,8 @@
             // 
             this.uxPanel01.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxPanel01.Controls.Add(this.uxBrowseSolutionPath);
+            this.uxPanel01.Controls.Add(this.uxClearSolutionPath);
+            this.uxPanel01.Controls.Add(this.groupBox1);
             this.uxPanel01.Controls.Add(this.uxSolutionPath);
             this.uxPanel01.Controls.Add(this.uxBrowseSolutionPathLabel);
             this.uxPanel01.Controls.Add(this.uxStep01Title);
@@ -255,6 +259,25 @@
             this.uxStep05IntroText.TabIndex = 0;
             this.uxStep05IntroText.Text = "{introtext}";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(18, 104);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(830, 303);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = " Selected solution ";
+            // 
+            // uxClearSolutionPath
+            // 
+            this.uxClearSolutionPath.Location = new System.Drawing.Point(766, 62);
+            this.uxClearSolutionPath.Name = "uxClearSolutionPath";
+            this.uxClearSolutionPath.Size = new System.Drawing.Size(82, 23);
+            this.uxClearSolutionPath.TabIndex = 4;
+            this.uxClearSolutionPath.Text = "Clear";
+            this.uxClearSolutionPath.UseVisualStyleBackColor = true;
+            this.uxClearSolutionPath.Click += new System.EventHandler(this.uxClearSolutionPath_Click);
+            // 
             // PanelHolder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -304,5 +327,7 @@
         private System.Windows.Forms.Label uxStep05IntroText;
         private System.Windows.Forms.Label uxStep04IntroText;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button uxClearSolutionPath;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

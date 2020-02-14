@@ -53,7 +53,12 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
                 UpdateSolutionPath();
             }
         }
-        private void UpdateSolutionPath()
+        private void ClearSolutionPath()
+        {
+            AppState.SolutionPath = null;
+            UpdateSolutionPath(showError: false);
+        }
+        private void UpdateSolutionPath(bool showError = true)
         {
             uxSolutionPath.Text = AppState.SolutionPath;
             if (File.Exists(AppState.SolutionPath) && AppState.Solution.Key != Solution.Empty)
@@ -62,15 +67,18 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
             {
                 ColorControlError(uxSolutionPath);
 
-                MessageBox.Show(
-                    AppState.Solution.Value.InnerException.Message,
-                    AppState.Solution.Value.GetType().GetTypeName(),
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                if (showError)
+                    MessageBox.Show(
+                        AppState.Solution.Value.InnerException.Message,
+                        AppState.Solution.Value.GetType().GetTypeName(),
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
             }
         }
         private void uxBrowseSolutionPath_Click(object sender, System.EventArgs e)
             => BrowseSolutionPath();
+        private void uxClearSolutionPath_Click(object sender, System.EventArgs e)
+            => ClearSolutionPath();
         #endregion
 
         #region Color Handling
