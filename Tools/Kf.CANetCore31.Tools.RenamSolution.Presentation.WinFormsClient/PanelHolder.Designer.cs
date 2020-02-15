@@ -58,6 +58,9 @@
             this.uxPanel05 = new System.Windows.Forms.Panel();
             this.uxStep05Title = new System.Windows.Forms.Label();
             this.uxStep05IntroText = new System.Windows.Forms.Label();
+            this.uxOldNameSolution = new System.Windows.Forms.TextBox();
+            this.uxNewNameSolutionLabel = new System.Windows.Forms.Label();
+            this.uxNewNameSolution = new System.Windows.Forms.TextBox();
             this.uxPanel03.SuspendLayout();
             this.uxPanel01.SuspendLayout();
             this.uxSelectedSolutionInfo.SuspendLayout();
@@ -305,6 +308,9 @@
             // uxPanel02
             // 
             this.uxPanel02.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.uxPanel02.Controls.Add(this.uxNewNameSolutionLabel);
+            this.uxPanel02.Controls.Add(this.uxNewNameSolution);
+            this.uxPanel02.Controls.Add(this.uxOldNameSolution);
             this.uxPanel02.Controls.Add(this.uxSolutionOldName);
             this.uxPanel02.Controls.Add(this.uxStep02Title);
             this.uxPanel02.Location = new System.Drawing.Point(875, 6);
@@ -314,6 +320,7 @@
             this.uxPanel02.Size = new System.Drawing.Size(858, 416);
             this.uxPanel02.TabIndex = 1;
             this.uxPanel02.Tag = "WizardStep_2";
+            this.uxPanel02.VisibleChanged += new System.EventHandler(this.uxPanel02_VisibleChanged);
             // 
             // label1
             // 
@@ -397,6 +404,32 @@
             this.uxStep05IntroText.TabIndex = 0;
             this.uxStep05IntroText.Text = "{introtext}";
             // 
+            // uxOldNameSolution
+            // 
+            this.uxOldNameSolution.Location = new System.Drawing.Point(18, 62);
+            this.uxOldNameSolution.Name = "uxOldNameSolution";
+            this.uxOldNameSolution.ReadOnly = true;
+            this.uxOldNameSolution.Size = new System.Drawing.Size(830, 23);
+            this.uxOldNameSolution.TabIndex = 2;
+            // 
+            // uxNewNameSolutionLabel
+            // 
+            this.uxNewNameSolutionLabel.AutoSize = true;
+            this.uxNewNameSolutionLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxNewNameSolutionLabel.Location = new System.Drawing.Point(18, 92);
+            this.uxNewNameSolutionLabel.Name = "uxNewNameSolutionLabel";
+            this.uxNewNameSolutionLabel.Size = new System.Drawing.Size(147, 15);
+            this.uxNewNameSolutionLabel.TabIndex = 0;
+            this.uxNewNameSolutionLabel.Text = "New name of the solution:";
+            // 
+            // uxNewNameSolution
+            // 
+            this.uxNewNameSolution.Location = new System.Drawing.Point(18, 109);
+            this.uxNewNameSolution.Name = "uxNewNameSolution";
+            this.uxNewNameSolution.Size = new System.Drawing.Size(830, 23);
+            this.uxNewNameSolution.TabIndex = 2;
+            this.uxNewNameSolution.TextChanged += new System.EventHandler(this.uxNewNameSolution_TextChanged);
+            // 
             // PanelHolder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -459,5 +492,8 @@
         private System.Windows.Forms.LinkLabel uxProjectsToggelOverview;
         private System.Windows.Forms.LinkLabel uxProjectsToggleProjectStructure;
         private System.Windows.Forms.TreeView uxProjectsStructure;
+        private System.Windows.Forms.Label uxNewNameSolutionLabel;
+        private System.Windows.Forms.TextBox uxNewNameSolution;
+        private System.Windows.Forms.TextBox uxOldNameSolution;
     }
 }

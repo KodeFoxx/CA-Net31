@@ -64,6 +64,8 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
         private void UpdateSolutionPath(bool showError = true)
         {
             uxSolutionPath.Text = AppState.SolutionPath;
+            AppState.SolutionNewName = "";
+
             if (File.Exists(AppState.SolutionPath) && AppState.Solution.Key != Solution.Empty)
             {
                 ColorControlOk(uxSolutionPath);
@@ -71,6 +73,8 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
                 var solutionName = AppState.Solution.Key.FileInfo.Name;
                 var solution = AppState.Solution.Key.SolutionFile;
                 var projects = solution.ProjectsInOrder;
+
+                AppState.SolutionNewName = "";
 
                 uxSelectedSolutionInfo.Enabled = true;
                 uxSelectedSolutionInfo.Text = $" Selected solution '{solutionName}' ";
@@ -84,6 +88,8 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
             else
             {
                 ColorControlError(uxSolutionPath);
+
+                AppState.SolutionNewName = "";
 
                 uxSelectedSolutionInfo.Enabled = false;
                 uxSelectedSolutionInfo.Text = $" (no solution selected) ";
@@ -164,6 +170,19 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
         {
             control.BackColor = _okColor;
             control.ForeColor = _okColorText;
+        }
+        #endregion
+
+        #region Step 2
+        private void uxNewNameSolution_TextChanged(object sender, System.EventArgs e)
+            => AppState.SolutionNewName = uxNewNameSolution.Text;
+        private void uxPanel02_VisibleChanged(object sender, System.EventArgs e)
+            => UpdatePanel02Controls();
+
+        private void UpdatePanel02Controls()
+        {
+            uxOldNameSolution.Text = AppState.SolutionOldName;
+            uxNewNameSolution.Text = AppState.SolutionNewName;
         }
         #endregion
     }

@@ -18,5 +18,9 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
                 }
             }
         }
+
+        public static string SolutionNewName { get; set; }
+        public static string SolutionOldName
+            => Solution.Key?.FileInfo?.Name.IfNullOrWhiteSpaceThen("");
     }
 }

@@ -84,6 +84,7 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
 
             panel = panel ?? new Panel();
             panel.Location = new Point(0, 0);
+            panel.Visible = false;
 
             return panel;
         }
@@ -129,7 +130,9 @@ namespace Kf.CANetCore31.Tools.RenamSolution.Presentation.WinFormsClient
             uxNext.Enabled = _wizard.HasNextStep;
             uxPrevious.Enabled = _wizard.HasPreviousStep;
             uxPanelContainer.Controls.Clear();
+            _wizard.Current.Data.Visible = false;
             uxPanelContainer.Controls.Add(_wizard.Current.Data);
+            _wizard.Current.Data.Visible = true;
         }
         #endregion
 
