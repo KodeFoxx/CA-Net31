@@ -38,6 +38,17 @@
             this.uxBrowseSolutionPathLabel = new System.Windows.Forms.Label();
             this.uxStep01Title = new System.Windows.Forms.Label();
             this.uxPanel01 = new System.Windows.Forms.Panel();
+            this.uxClearSolutionPath = new System.Windows.Forms.Button();
+            this.uxSelectedSolutionInfo = new System.Windows.Forms.GroupBox();
+            this.uxProjectsLabel = new System.Windows.Forms.Label();
+            this.uxProjectsToggleProjectStructure = new System.Windows.Forms.LinkLabel();
+            this.uxProjectsToggelOverview = new System.Windows.Forms.LinkLabel();
+            this.uxSolutionNameLabel = new System.Windows.Forms.Label();
+            this.uxSolutionName = new System.Windows.Forms.Label();
+            this.uxProjectsStructure = new System.Windows.Forms.TreeView();
+            this.uxProjects = new System.Windows.Forms.ListView();
+            this.uxRootNamespace = new System.Windows.Forms.Label();
+            this.uxRootNamespaceLabel = new System.Windows.Forms.Label();
             this.uxPanel02 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,10 +58,9 @@
             this.uxPanel05 = new System.Windows.Forms.Panel();
             this.uxStep05Title = new System.Windows.Forms.Label();
             this.uxStep05IntroText = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.uxClearSolutionPath = new System.Windows.Forms.Button();
             this.uxPanel03.SuspendLayout();
             this.uxPanel01.SuspendLayout();
+            this.uxSelectedSolutionInfo.SuspendLayout();
             this.uxPanel02.SuspendLayout();
             this.uxPanel04.SuspendLayout();
             this.uxPanel05.SuspendLayout();
@@ -83,6 +93,7 @@
             // uxStep03IntroText
             // 
             this.uxStep03IntroText.AutoSize = true;
+            this.uxStep03IntroText.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep03IntroText.Location = new System.Drawing.Point(18, 45);
             this.uxStep03IntroText.Name = "uxStep03IntroText";
             this.uxStep03IntroText.Size = new System.Drawing.Size(60, 15);
@@ -92,6 +103,7 @@
             // uxSolutionOldName
             // 
             this.uxSolutionOldName.AutoSize = true;
+            this.uxSolutionOldName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxSolutionOldName.Location = new System.Drawing.Point(18, 45);
             this.uxSolutionOldName.Name = "uxSolutionOldName";
             this.uxSolutionOldName.Size = new System.Drawing.Size(142, 15);
@@ -132,9 +144,10 @@
             // uxBrowseSolutionPathLabel
             // 
             this.uxBrowseSolutionPathLabel.AutoSize = true;
+            this.uxBrowseSolutionPathLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxBrowseSolutionPathLabel.Location = new System.Drawing.Point(18, 45);
             this.uxBrowseSolutionPathLabel.Name = "uxBrowseSolutionPathLabel";
-            this.uxBrowseSolutionPathLabel.Size = new System.Drawing.Size(171, 15);
+            this.uxBrowseSolutionPathLabel.Size = new System.Drawing.Size(174, 15);
             this.uxBrowseSolutionPathLabel.TabIndex = 0;
             this.uxBrowseSolutionPathLabel.Text = "Visual Studio Solution file path:";
             // 
@@ -154,7 +167,7 @@
             this.uxPanel01.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxPanel01.Controls.Add(this.uxBrowseSolutionPath);
             this.uxPanel01.Controls.Add(this.uxClearSolutionPath);
-            this.uxPanel01.Controls.Add(this.groupBox1);
+            this.uxPanel01.Controls.Add(this.uxSelectedSolutionInfo);
             this.uxPanel01.Controls.Add(this.uxSolutionPath);
             this.uxPanel01.Controls.Add(this.uxBrowseSolutionPathLabel);
             this.uxPanel01.Controls.Add(this.uxStep01Title);
@@ -165,6 +178,129 @@
             this.uxPanel01.Size = new System.Drawing.Size(858, 416);
             this.uxPanel01.TabIndex = 1;
             this.uxPanel01.Tag = "WizardStep_1";
+            // 
+            // uxClearSolutionPath
+            // 
+            this.uxClearSolutionPath.Location = new System.Drawing.Point(766, 62);
+            this.uxClearSolutionPath.Name = "uxClearSolutionPath";
+            this.uxClearSolutionPath.Size = new System.Drawing.Size(82, 23);
+            this.uxClearSolutionPath.TabIndex = 4;
+            this.uxClearSolutionPath.Text = "Clear";
+            this.uxClearSolutionPath.UseVisualStyleBackColor = true;
+            this.uxClearSolutionPath.Click += new System.EventHandler(this.uxClearSolutionPath_Click);
+            // 
+            // uxSelectedSolutionInfo
+            // 
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxProjectsLabel);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxProjectsToggleProjectStructure);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxProjectsToggelOverview);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxSolutionNameLabel);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxSolutionName);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxProjectsStructure);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxProjects);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxRootNamespace);
+            this.uxSelectedSolutionInfo.Controls.Add(this.uxRootNamespaceLabel);
+            this.uxSelectedSolutionInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxSelectedSolutionInfo.Location = new System.Drawing.Point(18, 91);
+            this.uxSelectedSolutionInfo.Name = "uxSelectedSolutionInfo";
+            this.uxSelectedSolutionInfo.Size = new System.Drawing.Size(830, 316);
+            this.uxSelectedSolutionInfo.TabIndex = 3;
+            this.uxSelectedSolutionInfo.TabStop = false;
+            this.uxSelectedSolutionInfo.Text = " Selected solution ";
+            // 
+            // uxProjectsLabel
+            // 
+            this.uxProjectsLabel.AutoSize = true;
+            this.uxProjectsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxProjectsLabel.Location = new System.Drawing.Point(10, 75);
+            this.uxProjectsLabel.Name = "uxProjectsLabel";
+            this.uxProjectsLabel.Size = new System.Drawing.Size(52, 15);
+            this.uxProjectsLabel.TabIndex = 4;
+            this.uxProjectsLabel.Text = "Projects:";
+            // 
+            // uxProjectsToggleProjectStructure
+            // 
+            this.uxProjectsToggleProjectStructure.AutoSize = true;
+            this.uxProjectsToggleProjectStructure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxProjectsToggleProjectStructure.Location = new System.Drawing.Point(764, 75);
+            this.uxProjectsToggleProjectStructure.Name = "uxProjectsToggleProjectStructure";
+            this.uxProjectsToggleProjectStructure.Size = new System.Drawing.Size(55, 15);
+            this.uxProjectsToggleProjectStructure.TabIndex = 7;
+            this.uxProjectsToggleProjectStructure.TabStop = true;
+            this.uxProjectsToggleProjectStructure.Text = "Structure";
+            this.uxProjectsToggleProjectStructure.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.uxProjectsToggleProjectStructure_LinkClicked);
+            // 
+            // uxProjectsToggelOverview
+            // 
+            this.uxProjectsToggelOverview.AutoSize = true;
+            this.uxProjectsToggelOverview.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxProjectsToggelOverview.Location = new System.Drawing.Point(702, 75);
+            this.uxProjectsToggelOverview.Name = "uxProjectsToggelOverview";
+            this.uxProjectsToggelOverview.Size = new System.Drawing.Size(56, 15);
+            this.uxProjectsToggelOverview.TabIndex = 6;
+            this.uxProjectsToggelOverview.TabStop = true;
+            this.uxProjectsToggelOverview.Text = "Overview";
+            this.uxProjectsToggelOverview.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.uxProjectsToggelOverview_LinkClicked);
+            // 
+            // uxSolutionNameLabel
+            // 
+            this.uxSolutionNameLabel.AutoSize = true;
+            this.uxSolutionNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxSolutionNameLabel.Location = new System.Drawing.Point(28, 27);
+            this.uxSolutionNameLabel.Name = "uxSolutionNameLabel";
+            this.uxSolutionNameLabel.Size = new System.Drawing.Size(88, 15);
+            this.uxSolutionNameLabel.TabIndex = 0;
+            this.uxSolutionNameLabel.Text = "Solution name:";
+            // 
+            // uxSolutionName
+            // 
+            this.uxSolutionName.AutoSize = true;
+            this.uxSolutionName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.uxSolutionName.Location = new System.Drawing.Point(123, 27);
+            this.uxSolutionName.Name = "uxSolutionName";
+            this.uxSolutionName.Size = new System.Drawing.Size(88, 15);
+            this.uxSolutionName.TabIndex = 1;
+            this.uxSolutionName.Text = "{solutionName}";
+            // 
+            // uxProjectsStructure
+            // 
+            this.uxProjectsStructure.Font = new System.Drawing.Font("Segoe UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxProjectsStructure.Location = new System.Drawing.Point(10, 93);
+            this.uxProjectsStructure.Name = "uxProjectsStructure";
+            this.uxProjectsStructure.Size = new System.Drawing.Size(814, 217);
+            this.uxProjectsStructure.TabIndex = 8;
+            // 
+            // uxProjects
+            // 
+            this.uxProjects.Font = new System.Drawing.Font("Segoe UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uxProjects.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.uxProjects.HideSelection = false;
+            this.uxProjects.Location = new System.Drawing.Point(10, 1000);
+            this.uxProjects.Name = "uxProjects";
+            this.uxProjects.Size = new System.Drawing.Size(814, 231);
+            this.uxProjects.TabIndex = 5;
+            this.uxProjects.UseCompatibleStateImageBehavior = false;
+            this.uxProjects.View = System.Windows.Forms.View.Details;
+            // 
+            // uxRootNamespace
+            // 
+            this.uxRootNamespace.AutoSize = true;
+            this.uxRootNamespace.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.uxRootNamespace.Location = new System.Drawing.Point(123, 46);
+            this.uxRootNamespace.Name = "uxRootNamespace";
+            this.uxRootNamespace.Size = new System.Drawing.Size(97, 15);
+            this.uxRootNamespace.TabIndex = 3;
+            this.uxRootNamespace.Text = "{rootNamespace}";
+            // 
+            // uxRootNamespaceLabel
+            // 
+            this.uxRootNamespaceLabel.AutoSize = true;
+            this.uxRootNamespaceLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uxRootNamespaceLabel.Location = new System.Drawing.Point(18, 46);
+            this.uxRootNamespaceLabel.Name = "uxRootNamespaceLabel";
+            this.uxRootNamespaceLabel.Size = new System.Drawing.Size(98, 15);
+            this.uxRootNamespaceLabel.TabIndex = 2;
+            this.uxRootNamespaceLabel.Text = "Root namespace:";
             // 
             // uxPanel02
             // 
@@ -209,6 +345,7 @@
             // uxStep04IntroText
             // 
             this.uxStep04IntroText.AutoSize = true;
+            this.uxStep04IntroText.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep04IntroText.Location = new System.Drawing.Point(18, 45);
             this.uxStep04IntroText.Name = "uxStep04IntroText";
             this.uxStep04IntroText.Size = new System.Drawing.Size(60, 15);
@@ -253,30 +390,12 @@
             // uxStep05IntroText
             // 
             this.uxStep05IntroText.AutoSize = true;
+            this.uxStep05IntroText.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uxStep05IntroText.Location = new System.Drawing.Point(18, 45);
             this.uxStep05IntroText.Name = "uxStep05IntroText";
             this.uxStep05IntroText.Size = new System.Drawing.Size(60, 15);
             this.uxStep05IntroText.TabIndex = 0;
             this.uxStep05IntroText.Text = "{introtext}";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(18, 104);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(830, 303);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = " Selected solution ";
-            // 
-            // uxClearSolutionPath
-            // 
-            this.uxClearSolutionPath.Location = new System.Drawing.Point(766, 62);
-            this.uxClearSolutionPath.Name = "uxClearSolutionPath";
-            this.uxClearSolutionPath.Size = new System.Drawing.Size(82, 23);
-            this.uxClearSolutionPath.TabIndex = 4;
-            this.uxClearSolutionPath.Text = "Clear";
-            this.uxClearSolutionPath.UseVisualStyleBackColor = true;
-            this.uxClearSolutionPath.Click += new System.EventHandler(this.uxClearSolutionPath_Click);
             // 
             // PanelHolder
             // 
@@ -297,6 +416,8 @@
             this.uxPanel03.PerformLayout();
             this.uxPanel01.ResumeLayout(false);
             this.uxPanel01.PerformLayout();
+            this.uxSelectedSolutionInfo.ResumeLayout(false);
+            this.uxSelectedSolutionInfo.PerformLayout();
             this.uxPanel02.ResumeLayout(false);
             this.uxPanel02.PerformLayout();
             this.uxPanel04.ResumeLayout(false);
@@ -328,6 +449,15 @@
         private System.Windows.Forms.Label uxStep04IntroText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button uxClearSolutionPath;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox uxSelectedSolutionInfo;
+        private System.Windows.Forms.Label uxSolutionNameLabel;
+        private System.Windows.Forms.Label uxSolutionName;
+        private System.Windows.Forms.Label uxRootNamespace;
+        private System.Windows.Forms.Label uxRootNamespaceLabel;
+        private System.Windows.Forms.Label uxProjectsLabel;
+        private System.Windows.Forms.ListView uxProjects;
+        private System.Windows.Forms.LinkLabel uxProjectsToggelOverview;
+        private System.Windows.Forms.LinkLabel uxProjectsToggleProjectStructure;
+        private System.Windows.Forms.TreeView uxProjectsStructure;
     }
 }

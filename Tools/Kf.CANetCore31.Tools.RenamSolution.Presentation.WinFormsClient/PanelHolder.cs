@@ -1,4 +1,6 @@
 ﻿using Kf.CANetCore31.Tools.RenameSolution.Domain;
+using Microsoft.Build.Construction;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
         public PanelHolder()
         {
             InitializeComponent();
+            UpdateSolutionPath(showError: false);
         }
 
         #region Constants
@@ -62,10 +65,32 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
         {
             uxSolutionPath.Text = AppState.SolutionPath;
             if (File.Exists(AppState.SolutionPath) && AppState.Solution.Key != Solution.Empty)
+            {
                 ColorControlOk(uxSolutionPath);
+
+                var solutionName = AppState.Solution.Key.FileInfo.Name;
+                var solution = AppState.Solution.Key.SolutionFile;
+                var projects = solution.ProjectsInOrder;
+
+                uxSelectedSolutionInfo.Enabled = true;
+                uxSelectedSolutionInfo.Text = $" Selected solution '{solutionName}' ";
+                uxSolutionName.Text = solutionName;
+                uxRootNamespace.Text = solutionName.Replace(".sln", "");
+                BuildProjectOverviewTab(projects);
+                BuildProjectStructureTab(projects);
+
+                uxProjectsToggelOverview_LinkClicked(null, null);
+            }
             else
             {
                 ColorControlError(uxSolutionPath);
+
+                uxSelectedSolutionInfo.Enabled = false;
+                uxSelectedSolutionInfo.Text = $" (no solution selected) ";
+                uxSolutionName.Text = "";
+                uxRootNamespace.Text = "";
+                uxProjects.Items.Clear();
+                uxProjects.Columns.Clear();
 
                 if (showError)
                     MessageBox.Show(
@@ -75,10 +100,58 @@ namespace Kf.CANetCore31.Tools.RenameSolution.Presentation.WinFormsClient
                         MessageBoxIcon.Error);
             }
         }
+
+        private void BuildProjectOverviewTab(IReadOnlyList<ProjectInSolution> projects)
+        {
+            uxProjects.Visible = false;
+            uxProjects.Items.Clear();
+            uxProjects.Columns.Clear();
+            uxProjects.Columns.Add("Name");
+            uxProjects.Columns.Add("Type");
+            uxProjects.Columns.Add("Relative path");
+            uxProjects.Columns.Add("Guid");
+            uxProjects.Columns.Add("Parent guid");
+            foreach (var project in projects.Where(p => p.ProjectType == SolutionProjectType.KnownToBeMSBuildFormat))
+            {
+                var listViewItem = new ListViewItem(project.ProjectName);
+                var listViewSubItems = new ListViewItem.ListViewSubItem[] {
+                            new ListViewItem.ListViewSubItem(listViewItem, project.ProjectType.ToString()),
+                            new ListViewItem.ListViewSubItem(listViewItem, project.RelativePath),
+                            new ListViewItem.ListViewSubItem(listViewItem, project.ProjectGuid),
+                            new ListViewItem.ListViewSubItem(listViewItem, project.ParentProjectGuid),
+                        };
+                listViewItem.SubItems.AddRange(listViewSubItems);
+                uxProjects.Items.Add(listViewItem);
+            }
+            uxProjects.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            uxProjects.Visible = true;
+        }
+        private void BuildProjectStructureTab(IReadOnlyList<ProjectInSolution> projects)
+        {
+            uxProjectsStructure.Visible = false;
+            uxProjectsStructure.Nodes.Clear();
+            uxProjectsStructure.Nodes.Add("(work in progress, feauture in development)");
+            uxProjectsStructure.Visible = true;
+        }
+
         private void uxBrowseSolutionPath_Click(object sender, System.EventArgs e)
             => BrowseSolutionPath();
         private void uxClearSolutionPath_Click(object sender, System.EventArgs e)
             => ClearSolutionPath();
+        private void uxProjectsToggelOverview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            uxProjects.Visible = true;
+            uxProjects.Location = new Point(10, 93);
+            uxProjects.Size = new Size(814, 217);
+            uxProjectsStructure.Visible = false;
+        }
+        private void uxProjectsToggleProjectStructure_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            uxProjects.Visible = false;
+            uxProjectsStructure.Location = new Point(10, 93);
+            uxProjectsStructure.Size = new Size(814, 217);
+            uxProjectsStructure.Visible = true;
+        }
         #endregion
 
         #region Color Handling
